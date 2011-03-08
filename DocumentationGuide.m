@@ -1,8 +1,40 @@
 classdef DocumentationGuide < models.BaseFullModel
-    % Documentation guidlines example class
+    % Doxygen documentation guidlines example class
     %
     % This is the documentation guideline file for class and function
-    % documentation.
+    % documentation. KerMor uses 'doxygen' and a custom tool 'mtoc' to
+    % create the documentation from the source files. Doxygen has specific
+    % tags to enable easy documentation formatting/layout within the source
+    % files. Doxygen commands always begin with an at-character(\@) OR a
+    % backslash(\\).
+    %
+    % New feature and change log commands:
+    % New features can be tracked version-based via using
+    % @verbatim
+    % @new{<mainversionnumber>,<mainversionnumber>[, <date>]} <description>
+    % @endverbatim
+    %
+    % For example, writing
+    % @verbatim
+    % @new{0,1} Added a fancy new feature! (New feature Example)
+    % @endverbatim
+    % results in
+    % @new{0,1} Added a fancy new feature! (New feature Example)
+    %
+    % To include a date write
+    % @verbatim
+    % @new{0,1,2011-01-01} Added a fancy new feature on new year's! (New feature Example)
+    % @endverbatim
+    % results in
+    % @new{0,1,2011-01-01}  Added a fancy new feature on new year's! (New feature Example)
+    %
+    % and a new related page called @ref newfeat01 listing these
+    % items. To refer to that Changelog page, use the keyword 'newfeat'
+    % together with both plainly concatenated numbers: 
+    % @verbatim
+    % @ref newfeat01
+    % @endverbatim
+    % gives @ref newfeat01
     %
     % Changes can be tracked version-based via using
     % @verbatim
@@ -11,26 +43,84 @@ classdef DocumentationGuide < models.BaseFullModel
     %
     % For example, writing
     % @verbatim
-    % @change{0,1} Added a fancy new feature! (Changelog Example)
+    % @change{0,1} Changed foo to bar! (Changelog Example)
     % @endverbatim
     % results in
-    % @change{0,1} Added a fancy new feature! (Changelog Example)
+    % @change{0,1} Changed foo to bar! (Changelog Example)
     %
-    % Or to add a date write
-    % @verbatim
-    % @change{0,1,2011-01-01} Added a fancy new feature on new year's! (Changelog Example)
-    % @endverbatim
-    % results in
-    % @change{0,1,2011-01-01} Added a fancy new feature on new year's!
-    % (Changelog Example)
+    % The optional date works same as with the '@@new' command. The
+    % related page keys for changes are composed by the keyword 'changelog'
+    % and both plainly concatenated numbers (similar to the new feature
+    % keys).
     %
-    % and a new related page called @ref changelog01 listing these
-    % items. To refer to that Changelog page, use the keyword \c changelog
-    % together with both plainly concatenated numbers: 
+    % Formatting commands:
+    % These commands are available to you within class and function
+    % comments.
+    %
+    % Adding LaTeX code in the text with \verbatim @f$ \sum_{n=0}^N \frac{1}{n} @f$ \endverbatim
+    % @f$ \sum_{n=0}^N \frac{1}{n} @f$ or as an
+    % equation block with @verbatim @f[ \sum_{n=0}^N \frac{1}{n} @f] @endverbatim.
+    % @f[ \sum_{n=0}^N \frac{1}{n}@f]
+    %
+    % Formatting shortcuts:
+    % - Words prepended by \\c are written in a \c type-writer font.
+    % - Words prepended by \\b are written in a \b bold font.
+    % - Words prepended by \\em are written in an \em emphasized font.
+    %
+    % Blocks starting with @@verbatim or @@code and are ended with @@endverbatim or
+    % @@endcode are written unformatted in a type-writer font and are not
+    % interpreted by doxygen.
+    %
+    % Example:
     % @verbatim
-    % @ref changelog01
+    %                /| |\
+    %               ( |-| )
+    %                ) " (
+    %               (>(Y)<)
+    %                )   (
+    %               /     \
+    %              ( (m|m) )  hjw
+    %            ,-.),___.(,-.\`97
+    %            \`---\'   \`---\'
     % @endverbatim
-    % gives @ref changelog01
+    %
+    % Paragaphs starting with line ending with a double-colon:
+    % are started with a bold title line
+    %
+    % If, however, a double-colon at the end of a line is succeeded by: 
+    % whitespace characters, like spaces or tabulators the line is not written in a
+    % bold font.
+    % @note IMPORTANT: The auto-intendation command 'STRG+I' removes any
+    % empty spaces after a line, so "Sometext: " will become "Sometext:"
+    % and will be treated by doxygen as paragraph!
+    %
+    % Listings can be added by prepending lines with a dash(-)
+    %  - list 1 item which can also include
+    %   newlines
+    %  - list 2 item
+    %    - and they can be nested
+    %    - subitem 2
+    %    .
+    %  - list 3 item
+    %
+    % and they are ended by an empty documentation line.
+    %
+    % Enumerations can be added by prepending lines with a dash and hash (-#)
+    %  -# first item
+    %  -# second item
+    %  -# third item
+    %
+    % @note As regularly commands like @verbatim \c @f$, @f$ @f[, @f]
+    % @endverbatim look too distracting in matlab documentation output, the
+    % following shortcuts exist. The doxygen filter translates
+    % - @verbatim 'word' to \c word @endverbatim resulting in the output: 'word',
+    % - @verbatim `x` to @f$x@f$ @endverbatim resulting in the output: `x` and
+    % - @verbatim ``x`` to @f[x@f] @endverbatim resulting in the output: ``x``
+    %
+    % You therefore need to be careful with the use of characters @verbatim ' `
+    % @endverbatim If you want to say something about the transposed of a Matrix
+    % 'A', better do it in a Tex-Environment as `A' * B'` or in a verbatim/code
+    % environment as @code A' * B' @endcode
     
     properties(SetAccess=private)
         
@@ -54,7 +144,12 @@ classdef DocumentationGuide < models.BaseFullModel
     end
     
     properties(Dependent)
-        % equals someprop times five.
+        % Short description for a dependent property.
+        %
+        % Equals SomeProp times five.
+        %
+        % See also: SomeProp
+        % @see SomeProp
         SomeDepProp;
     end
     
@@ -74,77 +169,12 @@ classdef DocumentationGuide < models.BaseFullModel
             v = this.SomeProp;
         end
         
-        function rv = doxygen_documentation(this, param1, param2)%#ok
-            % function rv = doxygen_documentation(this, param1, param2) is ignored
-            % First line: short description text for function
+        function rv = example_function(this, param1, param2)%#ok
+            % function rv = example_function(this, param1, param2) is ignored
+            % First line: short description text for example function
             %
             % After the first empty documentation line, paragraphs of the detailed
             % description begin.
-            %
-            %
-            % Here, you have the following formatting possibilites:
-            % Adding LaTeX code in the text with \verbatim @f$ \sum_{n=0}^N \frac{1}{n} @f$ \endverbatim
-            % @f$ \sum_{n=0}^N \frac{1}{n} @f$ or as an
-            % equation block with @verbatim @f[ \sum_{n=0}^N \frac{1}{n}. @f] @endverbatim.
-            % @f[ \sum_{n=0}^N \frac{1}{n}. @f] Doxygen commands
-            % always begin with an at-character(\@) OR a backslash(\\).
-            %
-            % Words prepended by \\c are written in a \c type-writer font.
-            % Words prepended by \\b are written in a \b bold font.
-            % Words prepended by \\em are written in an \em emphasized font.
-            %
-            % Blocks starting with @@verbatim or @@code and are ended with @@endverbatim or
-            % @@endcode are written unformatted in a type-writer font and are not
-            % interpreted by doxygen.
-            %
-            % Example:
-            % @verbatim
-            %                /| |\
-            %               ( |-| )
-            %                ) " (
-            %               (>(Y)<)
-            %                )   (
-            %               /     \
-            %              ( (m|m) )  hjw
-            %            ,-.),___.(,-.\`97
-            %            \`---\'   \`---\'
-            % @endverbatim
-            %
-            % Paragaphs starting with line ending with a double-colon:
-            % are started with a bold title line
-            %
-            % If, however, a double-colon at the end of a line is succeeded by:
-            % whitespace characters, like spaces or tabulators the line is not written in a
-            % bold font.
-            %
-            % @note As regularly commands like @verbatim \c @f$, @f$ @f[, @f] @endverbatim
-            % look too distracting in matlab documentation output, the following shortcust
-            % exist: The doxygen filter translates
-            %  - @verbatim 'word' to \c word @endverbatim resulting in the output: 'word',
-            %  - @verbatim `x` to @f$x@f$ @endverbatim resulting in the output: `x` and
-            %  - @verbatim ``x`` to @f[x.@f] @endverbatim resulting in the output: ``x``.
-            %
-            % You therefore need to be careful with the use of characters @verbatim ' `
-            % @endverbatim. If you want to say something about the transposed of a Matrix
-            % 'A', better do it in a Tex-Environment as `A' * B'` or in a verbatim/code
-            % environment as
-            % @code A' * B' @endcode
-            %
-            % Listings can be added by prepending lines with a dash(-)
-            %  - list 1 item which can also include
-            %   newlines
-            %  - list 2 item
-            %    - and they can be nested
-            %    - subitem 2
-            %    .
-            %  - list 3 item
-            %
-            % and they are ended by an empty documentation line.
-            %
-            % Enumerations can be added by prepending lines with a dash and hash (-#)
-            %  -# first item
-            %  -# second item
-            %  -# third item
             %
             % Lines beginning with the words "Parameters" or "Return values" start a block
             % of argument respectively return argument descriptions.
@@ -168,6 +198,18 @@ classdef DocumentationGuide < models.BaseFullModel
             % Generated fields of rv:
             %  RB: Description for generated field rv.RB
             %
+            % References to other classes/members/properties can be made in
+            % the matlab-fashion via
+            % See also: 
+            % SomeProp noRealArguments
+            %
+            % or using the '@@see' doxygen command
+            % @see SomeProp noRealArguments
+            %
+            % @note There is no technical difference as the 'See also'
+            % keyword is simply replaced by @@see upon parsing. It is just
+            % a convenience implementation.
+            
             
             % After the first non-comment line the function body begins:
             
