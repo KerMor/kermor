@@ -169,6 +169,10 @@ classdef DocumentationGuide < models.BaseFullModel
             v = this.SomeProp;
         end
         
+        function v = get.SomeDepProp(this)
+                v = this.SomeProp * 5;
+            end
+        
         function rv = example_function(this, param1, param2)%#ok
             % function rv = example_function(this, param1, param2) is ignored
             % First line: short description text for example function
@@ -210,13 +214,12 @@ classdef DocumentationGuide < models.BaseFullModel
             % keyword is simply replaced by @@see upon parsing. It is just
             % a convenience implementation.
             
-            
             % After the first non-comment line the function body begins:
             
             %| Comment blocks starting with %| are interpreted as Doxygen documentation
             % blocks and can include doxygen commands like
             
-            %| \todo There needs to be done something in this file
+            %| @todo There needs to be done something in this file (demo)
             
             % fields of parameters that are used in the function body are added to the
             % required fileds list automatically, if they are not documentated yet.
@@ -228,28 +231,7 @@ classdef DocumentationGuide < models.BaseFullModel
             % also added automatically to the list of generated fields
             rv.auto_added  = 1;
             
-            %| \docupdate Do something!
-            
-            function set.SomeProp(this, value)
-                % Some function
-                if value > 0
-                    this.SomeProp = value;
-                else
-                    error('buh');
-                end
-            end
-            
-            
-            function v = get.SomeProp(this)
-                % Some redundant method's short description
-                %
-                % Some more comment!
-                v = this.SomeProp;
-            end
-            
-            function v = get.SomeDepProp(this)
-                v = this.SomeProp * 5;
-            end
+            %| \docupdate Very, very old and poorly documented :-) 
         end
     end
     
