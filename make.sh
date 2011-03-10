@@ -1,25 +1,29 @@
 #!/bin/bash
 ###################################################################################
-###################### Adjust PATHs here ##########################################
-###################################################################################
-# Source directory
-SourceDir="/home/dwirtz/aghhome/Software/KerMor/Source"
-
-# Documentation output directory (log files and html)
-# Note: This path is inserted in the Doxyfile at both the OUTPUT_DIRECTORY and HTML_DIRECTORY settings.
-OutDir="/afs/.mathe/public/www/ians/agh/documentation/kermor"
-
-# The doxygen binary to use
-doxybin="/afs/.mathe/project/agh/shared_software/doxygen/bin/doxygen"
-
-
-###################################################################################
 ########################## DO NOT MODIFY ##########################################
 ###################################################################################
+
+# Source directory
+if [ ! -n "$KERMOR_SOURCE" ]; then
+echo "No source directory specified (have you started a new shell since installation?). Aborting."
+exit 0
+fi
+# Documentation output directory (log files and html)
+# Note: This path is inserted in the Doxyfile at both the OUTPUT_DIRECTORY and HTML_DIRECTORY settings.
+if [ ! -n "$KERMOR_DOCS" ]; then
+echo "No output directory specified (have you started a new shell since installation?). Aborting."
+exit 0
+fi
+# The doxygen binary to use
+if [ ! -n "$KERMOR_DOXYBIN" ]; then
+echo "No doxygen binary specified. Trying to use default command 'doxygen'..."
+KERMOR_DOXYBIN="doxygen"
+fi
+
 # Path to the base directory containing e.g mtoc binaries and configuration files
-#BaseDir="$SourceDir/documentation"
+BaseDir="$KERMOR_SOURCE/documentation"
 # New: all binaries, settings and extra documentation sources are in the same folder.
-BaseDir="$PWD"
+#BaseDir="$PWD"
 
 # Check for doxygen's config file
 if [ ! -f $BaseDir/Doxyfile.m4 ]; then
@@ -29,8 +33,8 @@ fi
 
 # Cleanup
 echo "Deleting old files..."
-#rm -rf $OutDir/html
-rm -f $OutDir/warnings.log
+#rm -rf $KERMOR_DOCS/html
+rm -f $KERMOR_DOCS/warnings.log
 
 echo "Creating shell scripts.."
 # Create bash script that's excecuted in Doxygen
@@ -47,7 +51,7 @@ chmod +x $BaseDir/latexnonstop.sh
 
 # Parse config file (Directly define macros here)
 echo "Parsing configuration.."
-m4params="-D OutputDirectory=$OutDir -D SourceDirectory=$SourceDir -D BaseDirectory=$BaseDir"
+m4params="-D OutputDirectory=$KERMOR_DOCS -D SourceDirectory=$KERMOR_SOURCE -D BaseDirectory=$BaseDir"
 if [ $# -eq 1 -a "$1" = "uml" ]; then
 	echo "Uml-switch on: Generating UML-Style Diagrams!" 
 	m4params+=" -D UMLSWITCH=UML_LOOK=YES"
@@ -60,10 +64,10 @@ m4 $m4params $BaseDir/Doxyfile.m4 > $BaseDir/Doxyfile
 m4 -D BaseDirectory=$BaseDir $BaseDir/kermorlatex.m4 > $BaseDir/kermorlatex.sty
 
 echo "Running doxygen.."
-$doxybin $BaseDir/Doxyfile 2>&1 1>$OutDir/doxygen.log | grep -v synupdate | grep -v docupdate | grep -v display | grep -v subsref | tee $OutDir/doxygen.err
+$KERMOR_DOXYBIN $BaseDir/Doxyfile 2>&1 1>$KERMOR_DOCS/doxygen.log | grep -v synupdate | grep -v docupdate | grep -v display | grep -v subsref | tee $KERMOR_DOCS/doxygen.err
 
 echo "Postprocessing.."
-cd $OutDir;
+cd $KERMOR_DOCS;
 for i in *.html; do 
 	$BaseDir/postprocess $i; 
 done
@@ -74,9 +78,9 @@ rm $BaseDir/latexnonstop.sh
 rm $BaseDir/Doxyfile
 rm $BaseDir/kermorlatex.sty
 
-if [ -s "$OutDir/warnings.log" ]; then
+if [ -s "$KERMOR_DOCS/warnings.log" ]; then
 	echo "Encountered warnings, opening log file.."
-	kwrite $OutDir/warnings.log&
+	xdg-open $KERMOR_DOCS/warnings.log&
 else
 	echo "No warnings issued!"
 fi

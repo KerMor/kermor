@@ -3,28 +3,16 @@
 @page docpage Documentation creation
 @short Guidlines for creating and maintaining this documentation
 
-@par Main script \c make.sh
-When first downloading the KerMor software you need to adjust the following paths in \c make.sh :
-@code
-# Source directory
-SourceDir="<kermor source path>"
-# Documentation output directory
-OutDir="<documentation output directory>"
-# The doxygen binary to use
-doxybin="doxygen"
-# Custom binary:
-# doxybin="<some absolute path>/doxygen"
-@endcode
-Next, you can compile the documentation via
-@verbatim ./make.sh @endverbatim
-and the html output will be placed in a html subfolder of \c OutDir.
+@section dp_user User instructions
+Once the application is installed  you can create the KerMor documentation by calling KerMor.createDocs. See the functions documentation for a list of optional parameters.
 
-Optionally a parameter \c uml can be passed and
-@verbatim ./make.sh uml @endverbatim
-generates graphical class visualizations that are UML-Style. This feature actually corresponds to the setting \c UMLSWITCH i.e. \c UML_LOOK in the Doxyfile.m4
+@section dp_devel Developer information: Complete file list of documentation creation related files
+This section contains information for KerMor developers. The matlab-script KerMor.createDocs basically calls the 
+script \c make.sh within the \c /documentation folder. Optionally, a parameter \c uml can be passed and
+@verbatim ./make.sh uml @endverbatim generates graphical class visualizations that are UML-Style. This feature actually corresponds to the 
+setting \c UMLSWITCH i.e. \c UML_LOOK in the Doxyfile.m4.
 
-@par Complete file list of documentation creation related files
-Usually, one should not have to do anything more than the above procedure, but the following complete list of files gives a short overview about their purpose:
+The following list of files gives a short overview about their individual role:
 @li \c make.sh - Main documentation creation script.
 @li \c Commands.tex - Place any custom commands you want to use within your in-code latex environment inside this file.
 @li \c DocumentationGuide - This is an example class showing how to document matlab classes in order to have them displayed most sensibly using doxygen.
@@ -47,6 +35,8 @@ For more details on some files see the following paragraphs.
 @par Groups documentation groups.c
 
 @par M to C configuration file mtoc.conf
+
+@todo write description
 */
 
 // ##################### MUnit testing page ########################
@@ -58,4 +48,16 @@ For more details on some files see the following paragraphs.
 For all details @ref testing.MUnit !
 
 @copydoc testing::MUnit
+*/
+
+// ##################### Developer page ########################
+/**
+@page developers KerMor Developers
+@short Introduces the developers of KerMor
+
+@section dw Daniel Wirtz
+Hello! For contact details visit <a href="http://www.agh.ians.uni-stuttgart.de/orga/people/wirtz" target="_blank">my homepage</a>
+
+@section sa Syed Ammar
+Hello! My name is Syed.
 */

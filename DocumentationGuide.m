@@ -8,25 +8,28 @@ classdef DocumentationGuide < models.BaseFullModel
     % files. Doxygen commands always begin with an at-character(\@) OR a
     % backslash(\\).
     %
-    % New feature and change log commands:
+    % For a full list of commands supported by doxygen look up
+    % http://www.stack.nl/~dimitri/doxygen/commands.html.
+    %
+    % @section dg_featchange New feature and change log commands
     % New features can be tracked version-based via using
     % @verbatim
-    % @new{<mainversionnumber>,<mainversionnumber>[, <date>]} <description>
+    % @new{<mainversionnumber>, <mainversionnumber>, <developerkey>[, <date>]} <description>
     % @endverbatim
     %
     % For example, writing
     % @verbatim
-    % @new{0,1} Added a fancy new feature! (New feature Example)
+    % @new{0,1,dw} Added a fancy new feature! (New feature Example)
     % @endverbatim
     % results in
-    % @new{0,1} Added a fancy new feature! (New feature Example)
+    % @new{0,1,dw} Added a fancy new feature! (New feature Example)
     %
     % To include a date write
     % @verbatim
-    % @new{0,1,2011-01-01} Added a fancy new feature on new year's! (New feature Example)
+    % @new{0,1,dw,2011-01-01} Added a fancy new feature on new year's! (New feature Example)
     % @endverbatim
     % results in
-    % @new{0,1,2011-01-01}  Added a fancy new feature on new year's! (New feature Example)
+    % @new{0,1,dw,2011-01-01}  Added a fancy new feature on new year's! (New feature Example)
     %
     % and a new related page called @ref newfeat01 listing these
     % items. To refer to that Changelog page, use the keyword 'newfeat'
@@ -38,22 +41,22 @@ classdef DocumentationGuide < models.BaseFullModel
     %
     % Changes can be tracked version-based via using
     % @verbatim
-    % @change{<mainversionnumber>,<mainversionnumber>[, <date>]} <change-text>
+    % @change{<mainversionnumber>, <mainversionnumber>, <developerkey>[, <date>]} <change-text>
     % @endverbatim
     %
     % For example, writing
     % @verbatim
-    % @change{0,1} Changed foo to bar! (Changelog Example)
+    % @change{0,1,dw} Changed foo to bar! (Changelog Example)
     % @endverbatim
     % results in
-    % @change{0,1} Changed foo to bar! (Changelog Example)
+    % @change{0,1,dw} Changed foo to bar! (Changelog Example)
     %
     % The optional date works same as with the '@@new' command. The
     % related page keys for changes are composed by the keyword 'changelog'
     % and both plainly concatenated numbers (similar to the new feature
     % keys).
     %
-    % Formatting commands:
+    % @section dg_formatting Formatting commands
     % These commands are available to you within class and function
     % comments.
     %
@@ -90,7 +93,7 @@ classdef DocumentationGuide < models.BaseFullModel
     % If, however, a double-colon at the end of a line is succeeded by: 
     % whitespace characters, like spaces or tabulators the line is not written in a
     % bold font.
-    % @note IMPORTANT: The auto-intendation command 'STRG+I' removes any
+    % @attention The auto-intendation command 'STRG+I' removes any
     % empty spaces after a line, so "Sometext: " will become "Sometext:"
     % and will be treated by doxygen as paragraph!
     %
