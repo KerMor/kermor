@@ -33,7 +33,7 @@ classdef DocumentationGuide < models.BaseFullModel
     %
     % and a new related page called @ref newfeat01 listing these
     % items. To refer to that Changelog page, use the keyword 'newfeat'
-    % together with both plainly concatenated numbers: 
+    % together with both plainly concatenated numbers:
     % @verbatim
     % @ref newfeat01
     % @endverbatim
@@ -90,7 +90,7 @@ classdef DocumentationGuide < models.BaseFullModel
     % Paragaphs starting with line ending with a double-colon:
     % are started with a bold title line
     %
-    % If, however, a double-colon at the end of a line is succeeded by: 
+    % If, however, a double-colon at the end of a line is succeeded by:
     % whitespace characters, like spaces or tabulators the line is not written in a
     % bold font.
     % @attention The auto-intendation command 'STRG+I' removes any
@@ -173,8 +173,8 @@ classdef DocumentationGuide < models.BaseFullModel
         end
         
         function v = get.SomeDepProp(this)
-                v = this.SomeProp * 5;
-            end
+            v = this.SomeProp * 5;
+        end
         
         function rv = example_function(this, param1, param2)%#ok
             % function rv = example_function(this, param1, param2) is ignored
@@ -207,7 +207,7 @@ classdef DocumentationGuide < models.BaseFullModel
             %
             % References to other classes/members/properties can be made in
             % the matlab-fashion via
-            % See also: 
+            % See also:
             % SomeProp noRealArguments
             %
             % or using the '@@see' doxygen command
@@ -234,7 +234,18 @@ classdef DocumentationGuide < models.BaseFullModel
             % also added automatically to the list of generated fields
             rv.auto_added  = 1;
             
-            %| \docupdate Very, very old and poorly documented :-) 
+            %| \docupdate Very, very old and poorly documented :-)
+        end
+        
+        function returnarg = iwillbeoverridden(this, arg1)%#ok
+            % This is a base function which will be overridden in a
+            % subclass!
+            %
+            % This are function details described in the class
+            % DocumentationGuide.
+            %
+            % Blah. Blah.
+            returnarg = arg1;
         end
     end
     

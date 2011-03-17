@@ -68,5 +68,23 @@
 %
 % @todo in class functions: do not remove the first function argument when
 % the current method is an abstract method (only for functions with body)
+%
+% @todo konvention für mex-files: eine datei gleichen namens (wg.
+% matlab-konvention) im ordner anlegen, die als erste zeile die
+% methodensignatur enthält. diese wird von mtoc gelesen und als funktion
+% hinzugefügt! ''Achtung'' manchmal kann man im klassenfile auch
+% verschiedene sichtbarkeiten für die methode deklarieren; in diesem fall
+% wird die methode per mtoc schon zur klasse hinzugefügt, allerdings ohne
+% kommentar. matlab zeigt dann auch keine hilfe an (weil anderer access als
+% public), aber die dokumentation kann ja beschreibungen anzeigen falls man
+% welche hinzufügt; das macht vor allem bei protected-methoden sinn, da
+% sollte man ja schon hilfe sehen können.
+%
+% @todo ausschalten der automatischen parameter- und rückgabewerte
+% dokumentationsgenerierung durch mtoc falls der befehl @copydoc (oder
+% @copydetail) im sonstigen kommentarfeld verwendet wird.
+%
+% @todo handling von events mit einbauen?!
+
 
 somevar = 1;
