@@ -79,8 +79,11 @@ rm $BaseDir/Doxyfile
 rm $BaseDir/kermorlatex.sty
 
 if [ -s "$KERMOR_DOCS/warnings.log" ]; then
-	echo "Encountered warnings, opening log file.."
-	xdg-open $KERMOR_DOCS/warnings.log&
+	#echo "Encountered warnings, opening log file.."
+	#xdg-open $KERMOR_DOCS/warnings.log&
+	echo "Logged warnings:"
+	cat $KERMOR_DOCS/warnings.log
+	echo "Complete log file in $KERMOR_DOCS/warnings.log"
 else
 	echo "No warnings issued!"
 fi

@@ -84,7 +84,11 @@
 % dokumentationsgenerierung durch mtoc falls der befehl @copydoc (oder
 % @copydetail) im sonstigen kommentarfeld verwendet wird.
 %
-% @todo handling von events mit einbauen?!
+% @todo handling von events (event keyword für klassen) mit einbauen?!
+%
+% @todo gibt es eine schöne möglichkeit default-werte für parameter mit
+% einzubauen? für properties gibt es das ja schon, nur für optionale
+% parameter wäre das keyword '@@default' ja auch ganz nett!
 
 
 somevar = 1;
