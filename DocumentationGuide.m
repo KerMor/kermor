@@ -255,6 +255,9 @@ classdef DocumentationGuide < models.BaseFullModel
             %
             % Here are more details on the no real arguments function.
             % And even some more!
+            %
+            % @change{0,1,dw,2011-03-22} You can even specify/log changes
+            % on a function or property level!
         end
     end
     
