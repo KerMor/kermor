@@ -22,7 +22,7 @@ Branch name: master (no branches created before version 0.3)
 @page newfeat03 New features in Version 0.3
 @short Under current development
 
-Branch name: kermor03
+Branch name: master
 
 */
 //################## Changelog page
@@ -50,5 +50,5 @@ Branch name: master (no branches created before version 0.3)
 @page changelog03 Changes in Version 0.3
 @short Under current development
 
-Branch name: kermor03
+Branch name: master
 */ 
