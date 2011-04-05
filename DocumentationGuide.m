@@ -1,4 +1,4 @@
-classdef DocumentationGuide < models.BaseFullModel
+classdef DocumentationGuide < handle
     % Doxygen documentation guidlines example class
     %
     % This is the documentation guideline file for class and function

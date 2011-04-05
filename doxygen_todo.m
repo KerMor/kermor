@@ -89,6 +89,20 @@
 % @todo gibt es eine schöne möglichkeit default-werte für parameter mit
 % einzubauen? für properties gibt es das ja schon, nur für optionale
 % parameter wäre das keyword '@@default' ja auch ganz nett!
+%
+% @todo scheinbar mag mtoc so etwas wie @code
+% SomeProp = struct('xi',[],'ti',[],'mui',[]); @endcode nicht! ist (war) in
+% klasse AKernelCoreFun, parse error output:
+% @verbatim
+% Message: Grrrr!!!!
+% Next 20 characters to parse: 
+% [],'ti',[],'mui',[])
+% ------------------------------------
+% States are: ClassPart: Property
+% PropParams: constant = 0
+% MethodParams: 
+% AccessStruct: full = Public get  = Public set  = Public
+% @endverbatim
 
 
 somevar = 1;
