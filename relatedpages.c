@@ -15,6 +15,7 @@ setting \c UMLSWITCH i.e. \c UML_LOOK in the Doxyfile.m4.
 The following list of files gives a short overview about their individual role:
 @li \c make.sh - Main documentation creation script.
 @li \c Commands.tex - Place any custom commands you want to use within your in-code latex environment inside this file.
+@li \c development.c - Documentation for active developers
 @li \c DocumentationGuide - This is an example class showing how to document matlab classes in order to have them displayed most sensibly using doxygen.
 @li \c Doxyfile.m4 - The configuration file for doxygen. Is parsed using the m4 preprocessor to insert correct paths.
 @li \c doxygen_todo.m - A matlab file containing some tasks yet to investigate regarding the doxygen documentation creation.
@@ -24,7 +25,7 @@ The following list of files gives a short overview about their individual role:
 @li \c kermorlatex.m4 - The style file included into the _formulas.tex file when latex is run. Add any additional package declarations here (or in Commands.tex)
 Will be processed by m4 for correct path substitution.
 @li \c mainpage.c - The main page source documentation file
-@li \c relatedpages.c - The source file for all related pages except the changelog
+@li \c relatedpages.c - The source file for all related pages with short content
 @li \c changelogs.c - The manual source files for the changelog pages
 @li \c mtoc - M to C preprocessing binary (Thanks to M. Drohmann, Univ. of Münster!)
 @li \c mtoc.conf - M to C configuration file mtoc.conf
@@ -41,23 +42,11 @@ For more details on some files see the following paragraphs.
 
 // ##################### MUnit testing page ########################
 /**
-@page unittesting The KerMor testing framework MUnit
-@short Guidlines on how to test MatLab-Code using MUnit
-
-@par MUnit class file documentation
-For all details @ref testing.MUnit !
-
-@copydoc testing::MUnit
-*/
-
-// ##################### Developer page ########################
-/**
-@page developers KerMor Developers
-@short Introduces the developers of KerMor
-
-@section dw Daniel Wirtz
-Hello! For contact details visit <a href="http://www.agh.ians.uni-stuttgart.de/orga/people/wirtz" target="_blank">my homepage</a>
-
-@section sa Syed Ammar
-Hello! My name is Syed.
+ * @page unittesting The KerMor testing framework MUnit
+ * @short Guidlines on how to test MatLab-Code using MUnit
+ * @par MUnit class file documentation
+ * 
+ * For all details @ref testing.MUnit !
+ * 
+ * @copydoc testing::MUnit
 */

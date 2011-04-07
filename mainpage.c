@@ -5,6 +5,10 @@ KerMor is a MATLAB&copy; library providing routines for model order reduction
 of dynamical systems using subspace projection and kernels methods.
 Check out the Modules pages to get an overview of the different functionalities.
 
+KerMor makes extensive use of object oriented programming (OOP), basic information can be found
+at http://www.mathworks.com/products/matlab/object_oriented_programming.html 
+and advanced techniques can be found at http://www.advancedmcode.org/object-oriented-programming-in-matlab.html.
+
 @section learning How To get started
 @subsection mp_dl Downloading KerMor
  - Obtain a copy via git using @verbatim git clone <agh-root-folder>/git/kermor <somelocalfolder>@endverbatim
