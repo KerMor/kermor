@@ -103,6 +103,12 @@
 % MethodParams: 
 % AccessStruct: full = Public get  = Public set  = Public
 % @endverbatim
+%
+% @todo Definitionen wie @code classdef(Sealed) @endcode führen zu parse errors.
+% Es gibt ein paar solcher direktiven für klassen, die zunächst mal einfach übergangen werden können
+% oder ansonsten auch (falls sinnvoll übertragbar) zu entsprechenden deklarationen in C übersetzt
+% werden sollten.
+
 
 
 somevar = 1;
