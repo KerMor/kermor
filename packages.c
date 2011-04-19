@@ -25,12 +25,19 @@ of components.
 For more details see @ref g_components.
 
 @package solvers
-@short Collection of ODE and quadratic programming solvers
+@short Base package for solvers
+This package contains any solvers contained in KerMor.
+ 
+@package solvers.ode
+@short Collection of ODE solvers
 
-This package contains solvers for both ODEs and quadratic programs.
-@par ODE
 Self-implemented ODE solvers and builtin matlab-solver wrappers (MLWrapper).
-@par qp
+
+For more details see @ref g_main.
+
+@package solvers.qp
+@short Various quadratic program solvers
+
 Different 3rd-Party solvers are wrapped via BaseQPSolver.
 
 For more details see @ref g_main.

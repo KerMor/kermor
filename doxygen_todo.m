@@ -108,6 +108,9 @@
 % Es gibt ein paar solcher direktiven für klassen, die zunächst mal einfach übergangen werden können
 % oder ansonsten auch (falls sinnvoll übertragbar) zu entsprechenden deklarationen in C übersetzt
 % werden sollten.
+%
+% @todo Bug? KerMor.createDocs erzeugt ne fehlermeldung "unknown command" für change, obwohl es in
+% der gleichen klasse für ne andere funktion funktioniert. wird da was falsch geparst?
 
 
 
