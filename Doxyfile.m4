@@ -204,7 +204,7 @@ TAB_SIZE               = 8
 
 ALIASES                = "synupdate=\xrefitem synupdate \"Syntax Update\" \"Syntax needs to be updated\"" \
                          "docupdate=\xrefitem docupdate \"Documentation Update\" \"Documentation needs to be updated\"" \
-                         "default=<br><b>Default</b>:" \
+                         "default=\par Default:\n" \
                          "type=<br><b>Type</b>: " \
                          "changexref{2}=\xrefitem changelog\1\2 \"Change in \1.\2\" \"Changes in KerMor Version \1.\2\"" \
 			 "change{4} = \changexref{\1,\2} (\ref \3, \4) " \
@@ -212,6 +212,7 @@ ALIASES                = "synupdate=\xrefitem synupdate \"Syntax Update\" \"Synt
 			 "newxref{2}=\xrefitem newfeat\1\2 \"New in \1.\2\" \"New features in KerMor Version \1.\2\"" \
 			 "new{4} = \newxref{\1,\2} (\ref \3, \4) " \
 			 "new{3} = \newxref{\1,\2} (\ref \3, undated) " \
+			 "propclass{1}=\xrefitem propclass_\1 \"Property class \1\" \"Properties with level \1\""
 
 # Set the OPTIMIZE_OUTPUT_FOR_C tag to YES if your project consists of C
 # sources only. Doxygen will then generate output that is more tailored for C.
