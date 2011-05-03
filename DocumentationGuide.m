@@ -1,4 +1,4 @@
-classdef DocumentationGuide < handle
+classdef DocumentationGuide < KerMorObject
     % Doxygen documentation guidlines example class
     %
     % This is the documentation guideline file for class and function
@@ -156,8 +156,30 @@ classdef DocumentationGuide < handle
         SomeDepProp;
     end
     
+    properties(SetObservable)
+        % @propclass{critical} Wrong values lead to instability.
+        CriticalProp = .1;
+        
+        % @propclass{optional} Wrong values lead to instability.
+        OptionalProp;
+    end
+    
     
     methods
+        
+        function this = DocumentationGuide
+            % Set default values if not already in property definition, i.e. when class instances
+            % are to be the default value
+            this.OptionalProp = RandStream.create('mt19937ar');
+            
+            % Register properties
+            this.registerProps('CriticalProp','OptionalProp');
+            
+            % Any change now or later will trigger the PostSet event, so this critical property will
+            % not be monitored later on. NO GO.
+            this.CriticalProp = .2;
+        end
+        
         function set.SomeProp(this, value)
             % Brief setter method description
             %
