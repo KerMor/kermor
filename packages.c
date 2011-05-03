@@ -94,4 +94,7 @@ Several regression algorithms like kernel least squares or SVM's are available i
 @package models.synth
 @short Package containing synthetic (testing) models
 
+@package models.circ
+@short Package containing (nonlinear) circuit models
+
 */ 

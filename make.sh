@@ -20,6 +20,11 @@ echo "No doxygen binary specified. Trying to use default command 'doxygen'..."
 KERMOR_DOXYBIN="doxygen"
 fi
 
+if [ $# -lt 1 ]; then
+  echo "No KerMor version argument given. Aborting.";
+  exit
+fi
+
 # Path to the base directory containing e.g mtoc binaries and configuration files
 BaseDir="$KERMOR_SOURCE/documentation"
 # New: all binaries, settings and extra documentation sources are in the same folder.
@@ -51,8 +56,8 @@ chmod +x $BaseDir/latexnonstop.sh
 
 # Parse config file (Directly define macros here)
 echo "Parsing configuration.."
-m4params="-D OutputDirectory=$KERMOR_DOCS -D SourceDirectory=$KERMOR_SOURCE -D BaseDirectory=$BaseDir"
-if [ $# -eq 1 -a "$1" = "uml" ]; then
+m4params="-D OutputDirectory=$KERMOR_DOCS -D SourceDirectory=$KERMOR_SOURCE -D BaseDirectory=$BaseDir -D KERMORVERSION=$1"
+if [ $# -eq 2 -a "$2" = "uml" ]; then
 	echo "Uml-switch on: Generating UML-Style Diagrams!" 
 	m4params+=" -D UMLSWITCH=UML_LOOK=YES"
 else
