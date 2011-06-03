@@ -46,7 +46,7 @@ echo "Creating shell scripts.."
 # mtocconv.sh is used as preprocessor in doxygen for m-files
 # and simply wraps $BaseDir/mtoc
 echo "#!/bin/bash
-$BaseDir/mtoc \$1 0 $BaseDir/mtoc.conf" > $BaseDir/mtocconv.sh
+$BaseDir/mtocpp \$1 $BaseDir/mtoc.conf" > $BaseDir/mtocconv.sh
 chmod +x $BaseDir/mtocconv.sh
 
 # Create bash script that runs latex in nonstopmode
