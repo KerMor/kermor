@@ -66,49 +66,6 @@
 % @todo include getter&setter function comments (if set) into the documentation at
 % the corresponding places
 %
-% @todo in class functions: do not remove the first function argument when
-% the current method is an abstract method (only for functions with body)
-%
-% @todo konvention für mex-files: eine datei gleichen namens (wg.
-% matlab-konvention) im ordner anlegen, die als erste zeile die
-% methodensignatur enthält. diese wird von mtoc gelesen und als funktion
-% hinzugefügt! ''Achtung'' manchmal kann man im klassenfile auch
-% verschiedene sichtbarkeiten für die methode deklarieren; in diesem fall
-% wird die methode per mtoc schon zur klasse hinzugefügt, allerdings ohne
-% kommentar. matlab zeigt dann auch keine hilfe an (weil anderer access als
-% public), aber die dokumentation kann ja beschreibungen anzeigen falls man
-% welche hinzufügt; das macht vor allem bei protected-methoden sinn, da
-% sollte man ja schon hilfe sehen können.
-%
-% @todo ausschalten der automatischen parameter- und rückgabewerte
-% dokumentationsgenerierung durch mtoc falls der befehl @copydoc (oder
-% @copydetail) im sonstigen kommentarfeld verwendet wird.
-%
-% @todo handling von events (event keyword für klassen) mit einbauen?!
-%
-% @todo gibt es eine schöne möglichkeit default-werte für parameter mit
-% einzubauen? für properties gibt es das ja schon, nur für optionale
-% parameter wäre das keyword '@@default' ja auch ganz nett!
-%
-% @todo scheinbar mag mtoc so etwas wie @code
-% SomeProp = struct('xi',[],'ti',[],'mui',[]); @endcode nicht! ist (war) in
-% klasse AKernelCoreFun, parse error output:
-% @verbatim
-% Message: Grrrr!!!!
-% Next 20 characters to parse: 
-% [],'ti',[],'mui',[])
-% ------------------------------------
-% States are: ClassPart: Property
-% PropParams: constant = 0
-% MethodParams: 
-% AccessStruct: full = Public get  = Public set  = Public
-% @endverbatim
-%
-% @todo Definitionen wie @code classdef(Sealed) @endcode führen zu parse errors.
-% Es gibt ein paar solcher direktiven für klassen, die zunächst mal einfach übergangen werden können
-% oder ansonsten auch (falls sinnvoll übertragbar) zu entsprechenden deklarationen in C übersetzt
-% werden sollten.
-%
 % @todo Bug? KerMor.createDocs erzeugt ne fehlermeldung "unknown command" für change, obwohl es in
 % der gleichen klasse für ne andere funktion funktioniert. wird da was falsch geparst?
 
