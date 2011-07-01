@@ -25,6 +25,14 @@ if [ $# -lt 1 ]; then
   exit
 fi
 
+# Check for mtoc++ installation
+mtocppbin=mtocpp
+postprocessbin=postprocess
+if [ ! -n which $mtocpp -o ! -n which $postprocessbin ]; then
+  echo "MtoC++ not installed. Aborting.";
+  exit
+fi
+
 # Path to the base directory containing e.g mtoc binaries and configuration files
 BaseDir="$KERMOR_SOURCE/documentation"
 # New: all binaries, settings and extra documentation sources are in the same folder.
@@ -46,7 +54,7 @@ echo "Creating shell scripts.."
 # mtocconv.sh is used as preprocessor in doxygen for m-files
 # and simply wraps $BaseDir/mtoc
 echo "#!/bin/bash
-$BaseDir/mtocpp \$1 $BaseDir/mtoc.conf" > $BaseDir/mtocconv.sh
+$mtocppbin \$1 $BaseDir/mtoc.conf" > $BaseDir/mtocconv.sh
 chmod +x $BaseDir/mtocconv.sh
 
 # Create bash script that runs latex in nonstopmode
@@ -74,7 +82,7 @@ $KERMOR_DOXYBIN $BaseDir/Doxyfile 2>&1 1>$KERMOR_DOCS/doxygen.log | grep -v synu
 echo "Postprocessing.."
 cd $KERMOR_DOCS;
 for i in *.html; do 
-	$BaseDir/postprocess $i; 
+	$postprocessbin $i; 
 done
 
 echo "Deleting temporary files.."
