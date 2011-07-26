@@ -1,21 +1,30 @@
 #!/bin/bash
+# KerMor documentation creation script. Usually run directly out of KerMor via the
+# Command "KerMor.createDocs", but can also be called directly.
+#
+# Syntax: ./make.sh <KerMorMainVersion> <KerMorSubVersion>
+# 
+# Change log:
+#
+# Daniel Wirtz 2011-07-07: Replaced errorneous search for mtocpp bins by hash check
+#
 ###################################################################################
 ########################## DO NOT MODIFY ##########################################
 ###################################################################################
 
 # Source directory
-if [ ! -n "$KERMOR_SOURCE" ]; then
+if [ ! -n $KERMOR_SOURCE ]; then
 echo "No source directory specified (have you started a new shell since installation?). Aborting."
 exit 0
 fi
 # Documentation output directory (log files and html)
 # Note: This path is inserted in the Doxyfile at both the OUTPUT_DIRECTORY and HTML_DIRECTORY settings.
-if [ ! -n "$KERMOR_DOCS" ]; then
+if [ ! -n $KERMOR_DOCS ]; then
 echo "No output directory specified (have you started a new shell since installation?). Aborting."
 exit 0
 fi
 # The doxygen binary to use
-if [ ! -n "$KERMOR_DOXYBIN" ]; then
+if [ ! -n $KERMOR_DOXYBIN ]; then
 echo "No doxygen binary specified. Trying to use default command 'doxygen'..."
 KERMOR_DOXYBIN="doxygen"
 fi
@@ -27,11 +36,9 @@ fi
 
 # Check for mtoc++ installation
 mtocppbin=mtocpp
-postprocessbin=postprocess
-if [ ! -n which $mtocpp -o ! -n which $postprocessbin ]; then
-  echo "MtoC++ not installed. Aborting.";
-  exit
-fi
+postprocessbin=mtocpp_post
+hash $mtocppbin 2>&- || { echo >&2 "MtoC++ executable '$mtocppbin' not found. Aborting."; exit 1; }
+hash $postprocessbin 2>&- || { echo >&2 "MtoC++ postprocess executable '$postprocessbin' not found. Aborting."; exit 1; }
 
 # Path to the base directory containing e.g mtoc binaries and configuration files
 BaseDir="$KERMOR_SOURCE/documentation"
