@@ -8,6 +8,7 @@
  *- @subpage newfeat02
  *- @subpage newfeat03
  *- @subpage newfeat04
+ *- @subpage newfeat05
  * 
  *@page newfeat01 New features in Version 0.1
  *@short Initial KerMor version before logging new features
@@ -25,8 +26,14 @@
  * 
  *Submitted to /agh/git/kermor repository on 03.05.2011
  *Branch name: kermor03
- * 
+ *
  *@page newfeat04 New features in Version 0.4
+ *@short Version for WH10 Experiments
+ *
+ *Submitted to /agh/git/kermor repository on 2011-06-20
+ *Branch name: kermor04
+ * 
+ *@page newfeat05 New features in Version 0.5
  *@short Under current development
  * 
  *Branch name: master
@@ -43,25 +50,32 @@
  *- @subpage changelog02
  *- @subpage changelog03
  *- @subpage changelog04
+ *- @subpage changelog05
  *
  *@page changelog01 Changes in Version 0.1
  *@short Initial KerMor version before logging changes
  *
- *Submitted to /agh/git/kermor repository on 08.03.2011
+ *Submitted to /agh/git/kermor repository on 2011-03-08
  *
  *@page changelog02 Changes in Version 0.2
  *@short Some c implementation tests and stability/speedup fixes.
  *
- *Submitted to /agh/git/kermor repository on 22.03.2011
+ *Submitted to /agh/git/kermor repository on 2011-03-22
  *Branch name: master (no branches created before version 0.3)
  *
  *@page changelog03 Changes in Version 0.3
  *@short Added RC circuit model, implemented @ref propclasses, improved error estimator computation
  *
- *Submitted to /agh/git/kermor repository on 03.05.2011
+ *Submitted to /agh/git/kermor repository on 2011-05-03
  *Branch name: kermor03
  *
  *@page changelog04 Changes in Version 0.4
+ *@short Version for WH10 Experiments
+ *
+ *Submitted to /agh/git/kermor repository on 2011-06-20
+ *Branch name: kermor04
+ *
+ *@page changelog05 Changes in Version 0.5
  *@short Under current development
  *
  *Branch name: master
