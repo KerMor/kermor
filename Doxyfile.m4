@@ -37,7 +37,7 @@ PROJECT_NUMBER         = KERMORVERSION
 # for a project that appears at the top of each page and should give viewer
 # a quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "Software for Model Reduction of Nonlinear Dynamical Systems using Kernel Methods"
+PROJECT_BRIEF          = "Software for Model Reduction of Nonlinear Dynamical Systems using Kernel Methods, status CREATED"
 
 # With the PROJECT_LOGO tag one can specify an logo or icon that is
 # included in the documentation. The maximum height of the logo should not

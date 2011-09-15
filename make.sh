@@ -2,7 +2,7 @@
 # KerMor documentation creation script. Usually run directly out of KerMor via the
 # Command "KerMor.createDocs", but can also be called directly.
 #
-# Syntax: ./make.sh <KerMorMainVersion> <KerMorSubVersion>
+# Syntax: ./make.sh <KerMorVersion> ["uml"]
 # 
 # Change log:
 #
@@ -69,17 +69,16 @@ echo "#!/bin/bash
 latex --interaction=nonstopmode \$*" > $BaseDir/latexnonstop.sh
 chmod +x $BaseDir/latexnonstop.sh
 
-# Parse config file (Directly define macros here)
+# Parse config file (Directly defining replacements here)
 echo "Parsing configuration.."
-m4params="-D OutputDirectory=$KERMOR_DOCS -D SourceDirectory=$KERMOR_SOURCE -D BaseDirectory=$BaseDir -D KERMORVERSION=$1"
+UML=" -D UMLSWITCH=UML_LOOK=NO"
 if [ $# -eq 2 -a "$2" = "uml" ]; then
 	echo "Uml-switch on: Generating UML-Style Diagrams!" 
-	m4params+=" -D UMLSWITCH=UML_LOOK=YES"
-else
-	m4params+=" -D UMLSWITCH=UML_LOOK=NO"
+	UML=" -D UMLSWITCH=UML_LOOK=YES"
 fi
+
 # Parse the Doxygen configuration
-m4 $m4params $BaseDir/Doxyfile.m4 > $BaseDir/Doxyfile
+m4 -D OutputDirectory=$KERMOR_DOCS -D SourceDirectory=$KERMOR_SOURCE -D BaseDirectory=$BaseDir -D KERMORVERSION=$1 -D CREATED="`date '+%Y-%m-%d, %H:%M'`" $UML $BaseDir/Doxyfile.m4 > $BaseDir/Doxyfile
 # Parse the kermorlatex include style file
 m4 -D BaseDirectory=$BaseDir $BaseDir/kermorlatex.m4 > $BaseDir/kermorlatex.sty
 
