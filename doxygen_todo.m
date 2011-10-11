@@ -18,57 +18,43 @@
 % @todo einfache wiederholung der \@brief-zeile innerhalb der detailbeschreibungen!
 % @todo für abstract-funktionen noch die kommentare mit einfügen (sollten
 % in der dokumentation oben drüber stehen..
+%
 % @todo den \@copydoc-befehl ggf. bei implementierungen von
 % interface-funktionen oder abstracts einfügen und die doku in einen
 % eigenen \@par einfügen ("Documentation from original declaration:")
+%
 % @todo nice-to-have: aufruf einer überschriebenen superklassen-methode aus
 % neuer methode fügt kommentare aus superklassenmethode ein? oder zumindest
 % ein hinweis + link auf originalmethode..
+%
 % @todo \@default-Tag für properties einführen
+%
 % @todo mtoc.conf -> möglichkeit für add(returns) wie add(params)?
+%
 % @todo Bug: kommentare zwischen zwei funktionen in method-blöcken geben
 % nen parse error!
+%
 % @todo Scheinbar kann der parser zwar mehrfachvererbung, aber nur 2
 % klassen (ein "&" zeichen). Das können aber mehrere sein!
 % dinge wie "properties(Access=private);" mit ";" am ende geben nen parse
 % error; matlab selbst juckts aber nicht. vielleicht einen hinweis einbauen
 % oder am besten gleich ignorieren?
+%
 % @todo thismatlabtypesubstitute -> wird falls vorhanden wohl als typ für
 % alle parameter angenommen! einfacher: den parameter einfach verschwinden
 % lassen.
+%
 % @todo Kommentare zwischen function-blöcken innerhalb von method-blöcken
 % (auskommentierte funktionen) führen zu parse errors
+%
 % @todo bei mehr als einem sub-package in der klassendeklaration bei
 % vererbung (class1 < pck1.pck2.someclass & pck3.pck4.someotherclass)
 % gibt's nen parse error nach "&"
+%
 % @todo einen @type-tag einführen, der bei properties den angegebenen Typ
 % voranfügt
+%
 % @todo code-umgebung funktioniert nicht in property-descriptions;
 % @verbatim<code>some code</code>@endverbatim geht aber.
-%
-% @todo genestete funktionen werden geparst. sollten einfach gar nicht
-% auftauchen..? sind ja private
-%
-% @todo rückgabeparameter für abstract-funktionen funktionieren nicht
-% (parse error)
-%
-% @todo fhold zu wenig beim parsen des funktionennamens für abstracts; das
-% erste zeichen wird abgeschnitten. (solver -> olver)
-%
-% @todo kein doxybody-parsing bei abstract functions
-%
-% @todo kopiere bei klassen, funktionen und properties die erste textzeile
-% nochmal in die detailbeschreibung!
-%
-% @todo check welche LaTeX-funktionalitäten man erreichen kann (idee: ein
-% commandos/usepackage-file einbinden für mehr zeichen etc)
-%
-% @todo include getter&setter function comments (if set) into the documentation at
-% the corresponding places
-%
-% @todo Bug? KerMor.createDocs erzeugt ne fehlermeldung "unknown command" für change, obwohl es in
-% der gleichen klasse für ne andere funktion funktioniert. wird da was falsch geparst?
-
-
 
 somevar = 1;

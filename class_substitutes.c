@@ -1,3 +1,11 @@
+/**
+ * @class rowvector
+ * @brief A matlab row vector.
+ *
+ * This class is an artificial construct to allow more precise type declarations
+ *
+ */
+
 class handle {
 	/**
 		@class "handle"
@@ -10,7 +18,7 @@ public:
 /** @brief  Creates a listener for the specified event and assigns a callback function to execute when the event occurs.
   * @sa notify
  */
-matlabtypesubstitute addlistener;
+tuple<general::regression::ScalarEpsSVR_SMO, handle> addlistener;
 
 
 /**
