@@ -210,6 +210,7 @@ classdef DocumentationGuide < KerMorObject
             %
             % Parameters:
             %  param1: first parameter
+            %  param2: second parameter
             %
             % Return values:
             %  rv: return value

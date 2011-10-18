@@ -56,5 +56,10 @@
 %
 % @todo code-umgebung funktioniert nicht in property-descriptions;
 % @verbatim<code>some code</code>@endverbatim geht aber.
+%
+% @todo new bug: models::beam.DynLinTimoshenkoModel::plot has a dot in
+% between and thus the doxygen compiler does not recognize the class member
+% (warning: no uniquely matching class member found for ...)
+
 
 somevar = 1;

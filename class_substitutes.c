@@ -1,9 +1,38 @@
 /**
- * @class rowvector
+ * @class rowvec
  * @brief A matlab row vector.
  *
- * This class is an artificial construct to allow more precise type declarations
+ * This class is an artificially created class in doxygen to allow more precise type declarations
  *
+ */
+
+/**
+ * @class colvec
+ * @brief A matlab column vector.
+ *
+ * This class is an artificially created class in doxygen to allow more precise type declarations
+ *
+ */
+
+/** @class matrix
+ * @brief A matlab matrix
+ *
+ * This class is an artificially created class in doxygen to allow more precise type declarations
+ **/
+
+/** @class integer
+ * @brief An integer value
+ *
+ * This class is an artificially created class in doxygen to allow more precise type declarations
+ */
+
+/** @class logical
+ * @brief A boolean value
+ *
+ * This class can be seen as synonym for boolean values/flags used inside classes. In order to stick with
+ * matlab conventions/datatypes, this class was named logical instead of bool or boolean.
+ *
+ * This class is an artificially created class in doxygen to allow more precise type declarations
  */
 
 class handle {
