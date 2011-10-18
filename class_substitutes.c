@@ -4,44 +4,64 @@
  *
  * This class is an artificially created class in doxygen to allow more precise type declarations
  *
- */
-
-/**
  * @class colvec
  * @brief A matlab column vector.
  *
  * This class is an artificially created class in doxygen to allow more precise type declarations
  *
- */
-
-/** @class matrix
+ * @class matrix
  * @brief A matlab matrix
  *
  * This class is an artificially created class in doxygen to allow more precise type declarations
- **/
-
-/** @class integer
+ * 
+ * @class integer
  * @brief An integer value
  *
- * This class is an artificially created class in doxygen to allow more precise type declarations
- */
-
-/** @class logical
+ * This class is an artificially created class in doxygen to allow more precise type declarations.
+ * Matlab types associated with this class are all int-types (int8, uint8 etc).
+ * 
+ * @class logical
  * @brief A boolean value
  *
  * This class can be seen as synonym for boolean values/flags used inside classes. In order to stick with
  * matlab conventions/datatypes, this class was named logical instead of bool or boolean.
  *
  * This class is an artificially created class in doxygen to allow more precise type declarations
+ *
+ * @class function_handle
+ * @brief A MatLab function handle
+ *
+ * This class is an artificially created class in doxygen to allow more precise type declarations
+ *
+ * @class char
+ * @brief A MatLab character array
+ *
+ * This class is an artificially created class in doxygen to allow more precise type declarations
+ * and represents string-like types.
+ *
+ * @class cell
+ * @brief A MatLab cell array or matrix
+ *
+ * This class is an artificially created class in doxygen to allow more precise type declarations
+ *
+ * @class struct
+ * @brief A MatLab struct
+ *
+ * This class is an artificially created class in doxygen to allow more precise type declarations
  */
+
+
 
 class handle {
 	/**
-		@class "handle"
+		@class handle
 		@brief Matlab's base handle class (documentation generation substitute)
 
 		As doxygen does not know the class "handle" from itself, many classes do not get rendered within the documentation and the correct root class is not even displayed.
 		This workaround guarantees a correct (also graphical) representation of the class hierarchy within KerMor.
+     *  
+     *  Note here that by having the type handle it could also mean to have a vector or matrix of handles.
+     *
 	*/
 public:
 /** @brief  Creates a listener for the specified event and assigns a callback function to execute when the event occurs.
