@@ -4,7 +4,7 @@
 \usepackage{subfig}
 \usepackage{bbm}
 
-\input{BaseDirectory/Commands}
+\input{_ConfDir_/Commands}
 
 %\usepackage[utf8]{inputenc}
 %\usepackage{pseudocode}

@@ -3,6 +3,12 @@
 @short Short main group description
 
 Some details on main group
+ *
+ *
+ * @defgroup g_visual Visualization tools
+ * @ingroup g_main
+ * 
+ * KerMor also comes along with some basic visualization tools to investigate the approximated functions.
 
 @defgroup g_sampling Parameter sampling
 @ingroup g_main

@@ -3,7 +3,6 @@
  * @page propclasses Property classes and levels
  * @short KerMor default property changed supervision functionality
  *
- *
  * - @subpage propclass_experimental
  * - @subpage propclass_critical
  * - @subpage propclass_important

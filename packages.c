@@ -1,5 +1,5 @@
 /*
- * @package approx 
+ * @package approx
  * @short Nonlinearity approximation algorithms and base classes
  *
  * This package contains classes for different algorithms that can be used
