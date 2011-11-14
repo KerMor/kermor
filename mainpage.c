@@ -15,8 +15,8 @@ and advanced techniques can be found at http://www.advancedmcode.org/object-orie
  - Check out the @ref testing and @ref models sections.
 
 @subsection mp_install Installation
-When first downloading the KerMor software you need to run the installation script KerMor.install from the matlab console.
-This will set up the environment variables and compile any mex functions used within KerMor.
+When first downloading the KerMor software you need to run the installation script KerMor.setup from the matlab console.
+This will set up necessary environment variables and compile any mex functions used within KerMor.
 You will be asked for some directories during the installation script.
 
 In order to use 3rdParty programs you need to compile them externally and place appropriate symlinks in the @verbatim <source>/3rdparty @endverbatim directories.

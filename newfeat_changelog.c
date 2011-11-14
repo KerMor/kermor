@@ -9,6 +9,7 @@
  *- @subpage newfeat03
  *- @subpage newfeat04
  *- @subpage newfeat05
+ *- @subpage newfeat06
  * 
  *@page newfeat01 New features in Version 0.1
  *@short Initial KerMor version before logging new features
@@ -34,6 +35,12 @@
  *Branch name: kermor04
  * 
  *@page newfeat05 New features in Version 0.5
+ *@short New visualization tools, some intermediate adaptive approx classes, new RealTimeMode for ODE solvers
+ *
+ *Submitted to /agh/git/kermor repository on 2011-11-09
+ *Branch name: kermor05
+ * 
+ *@page newfeat06 New features in Version 0.6
  *@short Under current development
  * 
  *Branch name: master
@@ -51,6 +58,7 @@
  *- @subpage changelog03
  *- @subpage changelog04
  *- @subpage changelog05
+ *- @subpage changelog06
  *
  *@page changelog01 Changes in Version 0.1
  *@short Initial KerMor version before logging changes
@@ -76,6 +84,12 @@
  *Branch name: kermor04
  *
  *@page changelog05 Changes in Version 0.5
+ *@short Many bugfixes, most MUnit tests run, better class structure
+ *
+ *Submitted to /agh/git/kermor repository on 2011-11-09
+ *Branch name: kermor05
+ *
+ *@page changelog06 Changes in Version 0.6
  *@short Under current development
  *
  *Branch name: master
