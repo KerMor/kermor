@@ -54,7 +54,12 @@ For more details on some files see the following paragraphs.
 // ##################### Licensing ########################
 /**
 * @page licensing KerMor license conditions
-* @short This software is available under the GNU GPL license
+* @short This software is available partly by the GNU GPL and BSD license
+*
+*
+ * The KerMor framework as a whole is published under the GNU GPL license stated below.
+ * However, some source files are especially published under the BSD license 
+ * (see http://www.opensource.org/licenses/bsd-license.php) and are marked appropriately.
 *
 * This program is free software: you can redistribute it and/or modify 
 * it under the terms of the GNU General Public License as published by
