@@ -9,11 +9,6 @@
  *
  * This class is an artificially created class in doxygen to allow more precise type declarations
  *
- * @class matrix
- * @brief A matlab matrix
- *
- * This class is an artificially created class in doxygen to allow more precise type declarations
- * 
  * @class integer
  * @brief An integer value
  *
@@ -50,7 +45,23 @@
  * This class is an artificially created class in doxygen to allow more precise type declarations
  */
 
-
+class matrix {
+    /**
+     * @class matrix
+     * @brief A matlab matrix
+     *
+     * This class is an artificially created class in doxygen to allow more precise type declarations
+     */
+};
+class sparsematrix
+    :public ::matrix {
+    /**
+     * @class sparsematrix
+     * @brief A matlab sparse matrix
+     *
+     * This class is an artificially created class in doxygen to allow more precise type declarations
+     */
+};
 
 class handle {
 	/**
@@ -58,7 +69,7 @@ class handle {
 		@brief Matlab's base handle class (documentation generation substitute)
 
 		As doxygen does not know the class "handle" from itself, many classes do not get rendered within the documentation and the correct root class is not even displayed.
-		This workaround guarantees a correct (also graphical) representation of the class hierarchy within KerMor.
+		This workaround guarantees a correct (also graphical) representation of the class hierarchy.
      *  
      *  Note here that by having the type handle it could also mean to have a vector or matrix of handles.
      *
@@ -67,7 +78,7 @@ public:
 /** @brief  Creates a listener for the specified event and assigns a callback function to execute when the event occurs.
   * @sa notify
  */
-tuple<general::regression::ScalarEpsSVR_SMO, handle> addlistener;
+matlabtypesubstitute addlistener;
 
 
 /**
