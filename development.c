@@ -51,9 +51,16 @@
  * @short Introduces the developers of KerMor
  * 
  * @section dw Daniel Wirtz
- * 
- * Hello! For contact details visit <a href="http://www.agh.ians.uni-stuttgart.de/orga/people/wirtz" target="_blank">my homepage</a>
+ * KerMor main developer.
+ *
+ * For contact details visit <a href="http://www.agh.ians.uni-stuttgart.de/orga/people/wirtz" target="_blank">my homepage</a>
  * 
  * @section sa Syed Ammar
- * Hello! My name is Syed Ammar.
+ * Syed was involved in KerMor as scientific assistant until mid 2011.
+ *
+ * @section CS Christoph Strohmeyer
+ * Works mainly on the models.beam package and models.
+ *
+ * Visit http://www.mso.math.uni-erlangen.de/optimization/applied-mathematics-2/staff-members/strohmeyer-christoph/dipl-technomath-christoph-strohmeyer.html
+ * for more details.
  */
