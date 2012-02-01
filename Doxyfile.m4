@@ -1741,17 +1741,20 @@ FILE_PATTERNS     = *.m \
                     *.hpp \
 
 # the link between mtoc++ and doxygen (the `' separates the macros)
-FILTER_PATTERNS   = *.m="_ConfDir_`'_FileSep_`'_MTOCFILTER_"
+FILTER_PATTERNS     = *.m="_ConfDir_`'_FileSep_`'_MTOCFILTER_"
 
 # NO will cause doxygen to stop when LaTeX errors occur
-LATEX_BATCHMODE   = YES             		
+LATEX_BATCHMODE     = YES             		
 
 # latex styles inclusion file
-EXTRA_PACKAGES    = _LatexExtras_
-#EXTRA_PACKAGES    = "_ConfDir_`'_FileSep_`'latexextras"
+EXTRA_PACKAGES      = _LatexExtras_
+#EXTRA_PACKAGES     = "_ConfDir_`'_FileSep_`'latexextras"
 
 # leave empty so MatlabDocMaker can capture doxygen warnings
-WARN_LOGFILE      =		
+WARN_LOGFILE        =		
 
 # disable latex stopping upon compile errors
 LATEX_BATCHMODE        = YES
+# References
+CITE_BIB_FILES      = "_ConfDir_`'_FileSep_`'agh_library.bib"
+LATEX_BIB_STYLE     = plain
