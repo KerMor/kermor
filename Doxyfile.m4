@@ -1548,7 +1548,7 @@ HIDE_UNDOC_RELATIONS   = YES
 # toolkit from AT&T and Lucent Bell Labs. The other options in this section
 # have no effect if this option is set to NO (the default)
 
-HAVE_DOT               = YES
+HAVE_DOT               = NO
 
 # The DOT_NUM_THREADS specifies the number of dot invocations doxygen is
 # allowed to run in parallel. When set to 0 (the default) doxygen will
@@ -1747,8 +1747,7 @@ FILTER_PATTERNS     = *.m="_ConfDir_`'_FileSep_`'_MTOCFILTER_"
 LATEX_BATCHMODE     = YES             		
 
 # latex styles inclusion file
-EXTRA_PACKAGES      = _LatexExtras_
-#EXTRA_PACKAGES     = "_ConfDir_`'_FileSep_`'latexextras"
+EXTRA_PACKAGES     = _LatexExtras_
 
 # leave empty so MatlabDocMaker can capture doxygen warnings
 WARN_LOGFILE        =		

@@ -1,7 +1,7 @@
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}
-\usepackage{subfig}
+%\usepackage{subfig}
 \usepackage{bbm}
 
 \input{_ConfDir_/Commands}
