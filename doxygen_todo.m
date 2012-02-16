@@ -1,11 +1,4 @@
 % @section doxytodo Doxygen ToDo
-% done - schließendes } für klassen
-% done - abstract-methoden
-% done - vererbung in packages (: public pack1.pack2.classname) schmeisst fehler!
-% done - alle vererbten methoden anzeigen (link auf seite öffnet komplette
-% liste)
-% done - für z.B. das package "dscomponents" gibt es eine lange liste der enthaltenen Klassen, die aber in der übersicht alle mit "dscomponents" benannt werden.
-% @todo \@type-tags: für properties einfach den string hinter "\@type" im c-code anstelle von "matlabtypesubstitute" einsetzen.
 % @todo readonly-tag: jeder innerhalb eines "Dependent" blocks definierten property einfach einen tag a la @verbatim @par "This property is readonly" @endverbatim hinzuzufügen. und da es sich in diesem falle eh um Methoden mit "get.<somename>" handelt wäre in einem solchen fall auch der hinweis "Getter is implemented" redundant/überflüssig.
 % done - "See also:" oder "See also" tags: diese sollte man ersetzen durch "\@sa". damit ist gewährleistet das die von Matlab selbst erzeugte dokumentation per "doc ." auch noch einigermaßen funktioniert.
 % @todo Static methods: bei statischen methoden darf der erste parameter nicht weggenommen werden! das ist ja sonst "this", aber z.B. in der Klasse MatUtils gibt es eine static methode aus der der parameter "stencil" entfernt wird; dies gibt bei doxygen später ne fehlermeldung.
@@ -19,7 +12,7 @@
 % @todo für abstract-funktionen noch die kommentare mit einfügen (sollten
 % in der dokumentation oben drüber stehen..
 %
-% @todo den \@copydoc-befehl ggf. bei implementierungen von
+% @todo den copydoc-befehl ggf. bei implementierungen von
 % interface-funktionen oder abstracts einfügen und die doku in einen
 % eigenen \@par einfügen ("Documentation from original declaration:")
 %

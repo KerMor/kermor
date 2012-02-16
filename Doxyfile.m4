@@ -1755,5 +1755,6 @@ WARN_LOGFILE        =
 # disable latex stopping upon compile errors
 LATEX_BATCHMODE        = YES
 # References
-CITE_BIB_FILES      = "_ConfDir_`'_FileSep_`'agh_library.bib"
+#CITE_BIB_FILES      = "_ConfDir_`'_FileSep_`'agh_library.bib"
+CITE_BIB_FILES      = C:/Users/CreaByte/Documents/Uni/kermor/documentation/agh_library.bib
 LATEX_BIB_STYLE     = plain
