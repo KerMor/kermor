@@ -95,8 +95,9 @@ For more details on some files see the following paragraphs.
  * property can be set either to a scalar value or a vector of the size of system's full dimension,
  * denoting the scaling of each dimension individually.
  *
- * When state space scaling is used, the given initial values will be transformed according to the scaling, and the resulting
- * output will be fed with the re-scaled state variables. This is realized by a diagonal matrix `S` in the following way:
+ * When state space scaling is used, the given real/unscaled initial values will be transformed according to the scaling, and the resulting
+ * output `C(t,\mu)` will be provided with the re-scaled state variables.
+ * This is realized by a diagonal matrix `S` in the following way:
  *
  * @f{align}{
  *  x'(t) &= f(x(t),t,\mu) + B(t,\mu)u(t)\\
