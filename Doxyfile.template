@@ -619,7 +619,7 @@ FILE_VERSION_FILTER    =
 # You can optionally specify a file name after the option, if omitted
 # DoxygenLayout.xml will be used as the name of the layout file.
 
-LAYOUT_FILE            =
+LAYOUT_FILE            = _ConfDir__FileSep_DoxygenLayout.xml
 
 #---------------------------------------------------------------------------
 # configuration options related to warning and progress messages
@@ -869,7 +869,7 @@ HTML_HEADER            =
 # each generated HTML page. If it is left blank doxygen will generate a
 # standard footer.
 
-HTML_FOOTER            =
+HTML_FOOTER            = _ConfDir__FileSep_footer.html
 
 # The HTML_STYLESHEET tag can be used to specify a user-defined cascading
 # style sheet that is used by each HTML page. It can be used to
@@ -1136,7 +1136,7 @@ FORMULA_TRANSPARENT    = YES
 # output. When enabled you also need to install MathJax separately and
 # configure the path to it using the MATHJAX_RELPATH option.
 
-USE_MATHJAX            = NO
+USE_MATHJAX            = YES
 
 # When MathJax is enabled you need to specify the location relative to the
 # HTML output directory using the MATHJAX_RELPATH option. The destination
@@ -1147,7 +1147,7 @@ USE_MATHJAX            = NO
 # MathJax, but it is strongly recommended to install a local copy of MathJax
 # before deployment.
 
-MATHJAX_RELPATH        = http://www.mathjax.org/mathjax
+MATHJAX_RELPATH        = http://cdn.mathjax.org/mathjax/latest
 
 # When the SEARCHENGINE tag is enabled doxygen will generate a search box
 # for the HTML output. The underlying search engine uses javascript
@@ -1512,14 +1512,6 @@ PERL_PATH              = /usr/bin/perl
 # Configuration options related to the dot tool
 #---------------------------------------------------------------------------
 
-# If the CLASS_DIAGRAMS tag is set to YES (the default) Doxygen will
-# generate a inheritance diagram (in HTML, RTF and LaTeX) for classes with base
-# or super classes. Setting the tag to NO turns the diagrams off. Note that
-# this option also works with HAVE_DOT disabled, but it is recommended to
-# install and use dot, since it yields more powerful graphs.
-
-CLASS_DIAGRAMS         = YES
-
 # You can define message sequence charts within doxygen comments using the \msc
 # command. Doxygen will then run the mscgen tool (see
 # http://www.mcternan.me.uk/mscgen/) to produce the chart and insert it in the
@@ -1565,19 +1557,7 @@ DOT_FONTSIZE           = 10
 
 DOT_FONTPATH           =
 
-# If the CLASS_GRAPH and HAVE_DOT tags are set to YES then doxygen
-# will generate a graph for each documented class showing the direct and
-# indirect inheritance relations. Setting this tag to YES will force the
-# the CLASS_DIAGRAMS tag to NO.
 
-CLASS_GRAPH            = YES
-
-# If the COLLABORATION_GRAPH and HAVE_DOT tags are set to YES then doxygen
-# will generate a graph for each documented class showing the direct and
-# indirect implementation dependencies (inheritance, containment, and
-# class references variables) of the class with other documented classes.
-
-COLLABORATION_GRAPH    = YES
 
 # If the GROUP_GRAPHS and HAVE_DOT tags are set to YES then doxygen
 # will generate a graph for groups, showing the direct groups dependencies
@@ -1780,6 +1760,9 @@ ALIASES                = "synupdate=\xrefitem synupdate \"Syntax Update\" \"Synt
 # have no effect if this option is set to NO (the default)
 
 HAVE_DOT               = _HaveDot_
+CLASS_DIAGRAMS         = NO
+CLASS_GRAPH            = NO
+COLLABORATION_GRAPH    = NO
                          
 ############### CRITICAL MTOC++ RELATED CONFIGURATION ##########################
 # The following tags should NOT be changed in order to keep mtoc++ running

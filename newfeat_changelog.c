@@ -1,16 +1,23 @@
 //################## New features page
 /**
- *@page newfeat New features
- *@short The KerMor version new features log.
+ *@page newfeat Changes and new features
+ *@short The KerMor change log
  * 
- *Here are all versions of KerMor and the corresponding changes:
- *- @subpage newfeat0_1
- *- @subpage newfeat0_2
- *- @subpage newfeat0_3
- *- @subpage newfeat0_4
- *- @subpage newfeat0_5
- *- @subpage newfeat0_6
- *- @subpage newfeat0_7
+ * Here are all versions of KerMor and the corresponding changes:
+ * - @subpage newfeat0_7
+ * - @subpage changelog0_7
+ * - @subpage newfeat0_6
+ * - @subpage changelog0_6
+ * - @subpage newfeat0_5
+ * - @subpage changelog0_5
+ * - @subpage newfeat0_4
+ * - @subpage changelog0_4
+ * - @subpage newfeat0_3
+ * - @subpage changelog0_3
+ * - @subpage newfeat0_2
+ * - @subpage changelog0_2
+ * - @subpage newfeat0_1
+ * - @subpage changelog0_1
  * 
  *@page newfeat0_1 New features in Version 0.1
  *@short Initial KerMor version before logging new features
@@ -51,22 +58,6 @@
  *@short Under current development
  * 
  * Branch name: master
- * 
- */
-//################## Changelog page
-/**
- *
- *@page changelog Changelog
- *@short The KerMor version changes log.
- *
- *Here are all versions of KerMor and the corresponding changes:
- *- @subpage changelog0_1
- *- @subpage changelog0_2
- *- @subpage changelog0_3
- *- @subpage changelog0_4
- *- @subpage changelog0_5
- *- @subpage changelog0_6
- *- @subpage changelog0_7
  *
  *@page changelog0_1 Changes in Version 0.1
  *@short Initial KerMor version before logging changes
