@@ -6,10 +6,17 @@ along with short installation notes.
 
 @todo complete!
 
-@section qpOASES qpOASES Quadradtic Solver
-
 */
 
 /*@section md5 MD5-Algorithm
 Found under http://www.mathworks.com/matlabcentral/fileexchange/25921
 and is used to create KerMorObject-IDs.*/
+
+typedef enum {
+	Access,
+	SetAccess,
+	GetAccess,
+	ListenAccess,
+	NotifyAccess
+
+} MatlabAccessEnum;
