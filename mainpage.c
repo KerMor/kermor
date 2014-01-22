@@ -46,7 +46,7 @@ In order to use 3rdParty programs you need to compile them externally and place 
 
 @section mp_docs Documentation
 - If desired create your own documentation: details can be found at the @ref docpage page
-- Check out the @ref newfeat and @ref changelog pages for latest informations
+- Check out the @ref newfeat pages for latest informations
 
 @section mp_startup Start of KerMor
 KerMor comes with a startup script KerMor.start that initializes any variables, static classes and parallel computing at the beginning.
