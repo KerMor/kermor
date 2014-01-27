@@ -17,19 +17,15 @@
  * @short Guidlines on how to test MatLab-Code using MUnit
  * @par MUnit class file documentation
  * 
- * For all details @ref testing.MUnit !
+ * For all details @ref MUnit !
  * 
  * @copydoc testing::MUnit
- *
- *
  *
  * @page dpcm Default Property Changed Monitoring
  * 
  * @todo write docs
  * 
  * See the @subpage propclasses page for all implemented property classes.
- *
- *
  *
  * @page propclasses Property classes and levels
  * @short KerMor default property changed supervision functionality

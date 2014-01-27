@@ -73,6 +73,9 @@
  *
  * For contact details visit <a href="http://www.mathematik.uni-stuttgart.de/fak8/ians/lehrstuhl/agh/orga/people/wirtz/index.html" target="_blank">my homepage</a>
  * 
+ * @section ts Timm Strecker
+ * Student assistant for KerMor maintenance.
+ *
  * @section sa Syed Ammar
  * Syed was involved in KerMor as scientific assistant until mid 2011.
  *
