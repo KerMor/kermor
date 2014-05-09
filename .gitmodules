@@ -1,15 +1,15 @@
 [submodule "models"]
 	path = models
-	url = ./kermor-models
+	url = ../kermor-models
 [submodule "core"]
 	path = core
-	url = ./kermor-core
+	url = ../kermor-core
 [submodule "dpcm"]
 	path = dpcm
-	url = ./dpcm
+	url = ../dpcm
 [submodule "matlabtools"]
 	path = matlabtools
-	url = ./matlabtools
+	url = ../matlabtools
 [submodule "matlabtojarmos"]
 	path = matlabtojarmos
-	url = ./matlabtojarmos
+	url = ../matlabtojarmos
