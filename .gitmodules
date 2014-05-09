@@ -1,0 +1,6 @@
+[submodule "models"]
+	path = models
+	url = 129.69.33.100:git/software/kermor-models
+[submodule "core"]
+	path = core
+	url = 129.69.33.100:git/software/kermor-core
