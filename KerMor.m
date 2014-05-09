@@ -641,6 +641,7 @@ classdef KerMor < handle
             addpath(fullfile(pcore,'tools'));
             addpath(fullfile(pcore,'interfaces'));
             addpath(pcore);
+            addpath(phome);
             
             initParallelization;
             
@@ -694,7 +695,6 @@ classdef KerMor < handle
                 addpath(fullfile(phome,'matlabtojarmos'));
                 addpath(fullfile(phome,'matlabtools'));
                 addpath(fullfile(phome,'dpcm'));
-                addpath(fullfile(phome,'models'));
                 
                 % md5
                 d = fullfile(pcore,'extern','calcmd5');
