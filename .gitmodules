@@ -1,5 +1,5 @@
 [submodule "models"]
-	path = models
+	path = +models
 	url = ../kermor-models
 [submodule "core"]
 	path = core

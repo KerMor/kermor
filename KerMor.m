@@ -561,20 +561,20 @@ classdef KerMor < handle
                     error('You must run KerMor.setup on each machine you want to run parallel jobs with KerMor!');
                 else
                     fprintf(2,'No KerMor preferences on this host found. Searching for settings from other hosts...\n');
-                    p = getpref;
-                    fn = fieldnames(p);
+                    phome = getpref;
+                    fn = fieldnames(phome);
                     op = strfind(fn,KerMor.PrefTagPrefix);
                     for i=1:numel(op)
                         if op{i} == 1
                             fprintf('Do you want to copy the following preferences from host "%s"?\n',fn{i}(length(KerMor.PrefTagPrefix)+1:end));
-                            disp(p.(fn{i}));
+                            disp(phome.(fn{i}));
                             r = lower(input('(Y)es, (N)o or (C)ancel and start KerMor setup: ','s'));
                             % Yes: copy prefs
                             if r == 'y'
                                 % Select preferences substruct from host and copy
                                 % NOT using Utils.xx here as this is not yet on
                                 % the PATH!
-                                localp = p.(fn{i});
+                                localp = phome.(fn{i});
                                 pfn = fieldnames(localp);
                                 for k = 1:numel(pfn)
                                     setpref(this.getPrefTag,pfn{k},localp.(pfn{k}));
@@ -626,21 +626,25 @@ classdef KerMor < handle
                 dbstop if error;
             end
             
-            p = this.HomeDirectory;
+            phome = this.HomeDirectory;
+            addpath(phome);
+            
+            pcore = fullfile(phome,'core');
             
             % Initialize external folders & software
-            initextern(p); 
+            initextern(phome, pcore); 
             
             % Setup home directory & paths (AFTER extern, to have the path
             % entries search BEFORE externally created ones)
-            addpath(p);
-            addpath(fullfile(p,'visual'));
-            addpath(fullfile(p,'interfaces'));
-            addpath(fullfile(p,'tools'));
+            addpath(fullfile(phome,'documentation'));
+            addpath(fullfile(pcore,'visual'));
+            addpath(fullfile(pcore,'tools'));
+            addpath(fullfile(pcore,'interfaces'));
+            addpath(pcore);
             
             initParallelization;
             
-            clear('p');
+            clear('phome','pcore');
             
             if this.UseDiary
                 % Fix for non-unix log files
@@ -663,7 +667,7 @@ classdef KerMor < handle
             
             disp('<<<<<<<<< Ready to go. >>>>>>>>>>');
             
-            function initextern(p)
+            function initextern(phome, pcore)
                 % Checks for 3rd party software availability
                 %
                 % @todo include checks for pardiso once pardiso solver is
@@ -684,22 +688,23 @@ classdef KerMor < handle
                 
                 % Add KerMor-included external software paths
                 disp('Initializing external tools...')
-                addpath(fullfile(p,'extern'));
-                addpath(fullfile(p,'extern','matlabtools'));
-                addpath(fullfile(p,'extern','matlabtools','dpcm'));
-                addpath(fullfile(p,'extern','matlabtojarmos'));
-                addpath(fullfile(p,'extern','export_fig'));
-                addpath(fullfile(p,'extern','compat'));
+                addpath(fullfile(pcore,'extern'));
+                addpath(fullfile(pcore,'extern','export_fig'));
+                addpath(fullfile(pcore,'extern','compat'));
+                addpath(fullfile(phome,'matlabtojarmos'));
+                addpath(fullfile(phome,'matlabtools'));
+                addpath(fullfile(phome,'dpcm'));
+                addpath(fullfile(phome,'models'));
                 
                 % md5
-                d = fullfile(p,'extern','calcmd5');
+                d = fullfile(pcore,'extern','calcmd5');
                 addpath(d);
                 if ~exist(fullfile(d,['CalcMD5.' mexext]),'file')
                     warning('KerMor:init','No compiled CalcMD5 mex file found. Did you run KerMor.setup completely?\nKerMor might not run properly.');
                 end
                 
                 % md5
-                d = fullfile(p,'extern','typecastx');
+                d = fullfile(pcore,'extern','typecastx');
                 addpath(d);
                 if ~exist(fullfile(d,['typecastx.' mexext]),'file')
                     warning('KerMor:init','No compiled typecastx mex file found. Did you run KerMor.setup completely?\nKerMor might not run properly.');
@@ -766,7 +771,7 @@ classdef KerMor < handle
                         
             a = KerMor.App;
             addpath(a.HomeDirectory);
-            addpath(genpath(fullfile(a.HomeDirectory,'extern'))  );
+            addpath(genpath(fullfile(a.HomeDirectory,'documentation')));
             
             %% KerMor directories
             % Setup the data storage directory
@@ -971,18 +976,18 @@ classdef KerMor < handle
             olddir = pwd;
             % CalcMD5
             disp('Compliling CalcMD5..');
-            cd(fullfile(a.HomeDirectory,'extern','calcmd5'));
+            cd(fullfile(a.HomeDirectory,'core','extern','calcmd5'));
             mex CFLAGS="\$CFLAGS -std=c99" CalcMD5.c
             
             % typecast/x
             disp('Compliling typecast/x..');
-            cd(fullfile(a.HomeDirectory,'extern','typecastx'));
+            cd(fullfile(a.HomeDirectory,'core','extern','typecastx'));
             mex typecast.c
             mex typecastx.c
             
             if isunix
                 disp('Compliling ppid..');
-                cd(fullfile(a.HomeDirectory,'extern'));
+                cd(fullfile(a.HomeDirectory,'core','extern'));
                 mex ppid.c
             else
                 warning('KerMor:setup','No ppid function available (win32 platform)');
