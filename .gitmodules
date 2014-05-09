@@ -4,3 +4,12 @@
 [submodule "core"]
 	path = core
 	url = 129.69.33.100:git/software/kermor-core
+[submodule "dpcm"]
+	path = dpcm
+	url = ./dpcm
+[submodule "matlabtools"]
+	path = matlabtools
+	url = ./matlabtools
+[submodule "matlabtojarmos"]
+	path = matlabtojarmos
+	url = ./matlabtojarmos
