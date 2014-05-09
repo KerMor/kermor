@@ -1,6 +1,3 @@
-[submodule "models"]
-	path = +models
-	url = ../models
 [submodule "core"]
 	path = core
 	url = ../kermor-core
@@ -13,3 +10,6 @@
 [submodule "matlabtojarmos"]
 	path = matlabtojarmos
 	url = ../matlabtojarmos
+[submodule "+models"]
+	path = +models
+	url = ../kermor-models
