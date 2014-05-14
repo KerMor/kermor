@@ -33,21 +33,26 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 @page gettingstarted How To get started
 @section mp_dl Downloading KerMor
- - Obtain a copy via git using @verbatim git clone http://www.agh.ians.uni-stuttgart.de:8080/agh/gitblit/git/software/matlab/kermor @endverbatim
- - Check out the @ref demos section to get an idea of KerMor's basic features
- - See the static \code test_* \endcode methods of classes for more code examples
+ - Obtain a copy of the main project via git using @verbatim git clone http://dwirtz@www.agh.ians.uni-stuttgart.de:8080/agh/gitblit/git/software/matlab/kermor/main <target_folder> @endverbatim
+ - Enter the <target_folder>
+ - Run @verbatim git submodule update -i @endverbatim to checkout KerMor's submodules
 
 @section mp_install Installation
 When first downloading the KerMor software you need to run the installation script KerMor.setup from the Matlab console.
 This will set up necessary environment variables and compile any mex functions used within KerMor.
-You will be asked for some directories during the installation script.
+You will be asked for some directories during the installation script. Developers checkout the @ref development page.
 
 @section mp_startup Start of KerMor
 KerMor comes with a startup script KerMor.start that initializes the environment at the beginning.
-If you have an automatically called script upon matlab startup you can add the path of your KerMor source directory to the PATH variable and call KerMor.start directly.
+On most systems, MatLab searches your (users) home directory for a script @code ~/matlab/startup.m @endcode.
+For convenience, you can add the path of your KerMor source directory to the PATH variable and call KerMor.start directly within that script.
 
 When you stop working with KerMor it is recommended to call KerMor.stop in order to cleanly shut down the application and free resources. However,
 if you quit matlab after that anyways you dont need to call the stop method.
+
+@section mp_working Working with KerMor
+ - Check out the @ref demos package to get an idea of KerMor's basic features
+ - See the static @code test_* @endcode methods of classes for more code examples 
 
 @section mp_docs Documentation
 - If desired you can create your own documentation from the present source code. Details can be found at the @ref docpage page

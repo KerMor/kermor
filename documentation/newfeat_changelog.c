@@ -4,6 +4,8 @@
  *@short The KerMor change log
  * 
  * Here are all versions of KerMor and the corresponding changes:
+ * - @subpage newfeat0_8
+ * - @subpage changelog0_8
  * - @subpage newfeat0_7
  * - @subpage changelog0_7
  * - @subpage newfeat0_6
@@ -55,6 +57,13 @@
  * Branch name: kermor06
  * 
  *@page newfeat0_7 New features in Version 0.7
+ *@short Final version of KerMor at the end of my PhD time (plus some extra)
+ * 
+ * This version will still be available as-is under
+ * @code http://www.agh.ians.uni-stuttgart.de:8080/agh/gitblit/git/software/matlab/kermor07.git @endcode
+ * Branch name: master
+ *
+ *@page newfeat0_8 New features in Version 0.8
  *@short Under current development
  * 
  * Branch name: master
@@ -95,6 +104,13 @@
  * Branch name: kermor06
  *
  *@page changelog0_7 Changes in Version 0.7
+ *@short Final version of KerMor at the end of my PhD time (plus some extra)
+ *
+ * This version will still be available as-is under
+ * @code http://www.agh.ians.uni-stuttgart.de:8080/agh/gitblit/git/software/matlab/kermor07.git @endcode
+ * Branch name: master
+ *
+ *@page changelog0_8 Changes in Version 0.8
  *@short Under current development
  *
  * Branch name: master

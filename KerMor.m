@@ -9,6 +9,10 @@ classdef KerMor < handle
     %
     % @author Daniel Wirtz @date 2011-03-04
     %
+    % @new{0,8,dw,2014-04-09} Started KerMor 0.8 and introduced a new file
+    % structure and git submodules. Most importantly, the core files are
+    % now separated from the already existing models in KerMor.
+    %
     % @change{0,7,dw,2014-01-17} Removed the Flag
     % "UseMatlabParallelComputing" as this should/must be set up separately
     % on each machine. Instead, manually opening the matlabpool is
