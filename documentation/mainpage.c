@@ -33,7 +33,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>
 
 @page gettingstarted How To get started
 @section mp_dl Downloading KerMor
- - Obtain a copy of the main project via git using @verbatim git clone http://dwirtz@www.agh.ians.uni-stuttgart.de:8080/agh/gitblit/git/software/matlab/kermor/main <target_folder> @endverbatim
+ - Obtain a copy of the main project via git using @verbatim git clone http://www.agh.ians.uni-stuttgart.de:8080/agh/gitblit/git/software/matlab/kermor/main <target_folder> @endverbatim
  - Enter the <target_folder>
  - Run @verbatim git submodule update -i @endverbatim to checkout KerMor's submodules
 
