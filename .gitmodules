@@ -13,3 +13,9 @@
 [submodule "+models"]
 	path = +models
 	url = ../models
+[submodule "kermorf"]
+	path = kermorf
+	url = ../kermorf
+[submodule "kermorpp"]
+	path = kermorpp
+	url = ../kermorpp
