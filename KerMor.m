@@ -236,10 +236,6 @@ classdef KerMor < handle
     % @todo timedirty ?berarbeiten / rausnehmen etc, sollte auch einzelaufrufe
     % zu offX checken.
     %
-    % @todo umstellen von simulate(mu,inputidx) auf simulate +
-    % setMu,setInputidx -> faster evaluation
-    % -gegenargument: schlechte parallelisierbarkeit bei zentralem mu/inidx
-    %
     % @todo PCAFixspace wieder einbauen, um greedy-basisgen zu erlauben (->
     % generell: greedy-unterraumalgorithmus einbauen)
     %
