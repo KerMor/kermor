@@ -843,7 +843,7 @@ classdef KerMor < handle
             try
                 host = char(getHostName(java.net.InetAddress.getLocalHost));
             catch ME
-                warning('KerMor:hostdetection','Your Host could not be identified. Using "unknown"');
+                %warning('KerMor:hostdetection','Your Host could not be identified. Using "unknown"');
                 host = 'unknown';
             end
             host = regexprep(strtrim(host),'[^\d\w]','');
