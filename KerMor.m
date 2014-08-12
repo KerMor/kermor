@@ -125,165 +125,6 @@ classdef KerMor < handle
     %
     % @change{0,1,dw} Initial version. @new{0,1,dw} Initial version.
     %
-    % To-Do's for KerMor:
-    % @todo
-    % - message-system ?ber alle berechnungen hinaus (ungew?hliche dinge
-    % berichten, exit flags etc). hier eine zentrale logging-funktion die
-    % je nach verbose sachen direkt plottet oder (immer!) in ein log-file
-    % schreibt.. das ganze mit verbose-leveln kombinieren!
-    % - laufzeittests f?r reduzierte modelle
-    % - interface f?r ModelData/Snapshots -> entweder arbeiten auf der
-    % Festplatte oder in 4D-Array .. (f?r gro?e simulationen) -> KerMor hat
-    % string f?r globales datenverzeichnis!
-    % generell datenhaltung auf festplatte (mu,inputidx-indiziert) (?) =>
-    %   - berechnung kernmatrix in teilen...
-    %   - hashfunktion bernard / ggf eigene interface-fkt f?r eindeutige
-    %   dirnames
-    %   -speichermanagement: gro?e matrizen / etc virtuell auf festplatte
-    %   laden/speichern
-    %
-    % @todo mehr tests / anwendungen f?r mehrere inputs aber keine parameter!
-    %
-    % @todo Verbose-Level benutzen / anpassen
-    %
-    % @todo test f?r rotationssensitive kerne!
-    %
-    % @todo: snapshotgenerierung -> mit fehlersch?tzer ausw?hlen! (3-4
-    % zuf?llig, dann approx, fehler -> neuen snapshot beim gr??ten fehler etc)
-    %
-    % @todo: moving least squares (mit gewichtsfkt) f?r general.regression ..
-    % -> book scattered data approx
-    %
-    % @todo: fft-approximation (?)
-    %
-    % @todo: use new matlab classes possibilities!
-    %
-    % @todo: Kern mit `\K(x,y) = (1-||x-y||_2)_+` oder so
-    %
-    % @todo: p-partitioning
-    %
-    % @todo: adaptive svr (impl. `\nu`-SVR, dann snapshots adden bis tol
-    % erreicht)
-    %
-    % @todo: zusammenlegen von funktionen / erstellen eines general-modules f?r
-    % KerMor/rbmatlab?
-    %
-    % @todo: try..catch langsam?
-    %
-    % @todo zeitabh?ngige outputconvertierung?
-    % testing.MUnit auch f?r "nicht-packages"
-    %
-    %
-    % @todo: parfor f?r sampling / comp-wise approximation? (snaphshot-generation/approx)
-    %
-    % @todo benchmarks von
-    % http://portal.uni-freiburg.de/imteksimulation/downloads/benchmark
-    % einlesbar machen / einbauen!
-    %
-    % @todo Beispiele von ODE's aus Matlab-Docs? (verficiation)
-    %
-    % @todo Fehlersch?tzer auf Output beschr?nken/erweitern!
-    %
-    % @todo Mehr ODE-Solver (implizit) einbauen, ggf. eigenen RK23 oder so.
-    %
-    % @todo LaGrange-koeffizientenfunktionen bei kerninterpolation berechnen!
-    % ist insgesamt billiger falls `N<<n`
-    %
-    % @todo: test f?r newton-iteration!
-    %
-    % @todo Implementierung Balanced Truncation (mit base class) f?r
-    % LinearCoreFuns, dann implementierung balanced truncation f?r empirical
-    % gramians nach paper Lall et al. -> neue subspace reduction method f?r
-    % nonlin-systems mit inputs! (geht ggf. auch f?r systeme ohne inputs? probieren!)
-    %
-    % @todo vielleicht so etwas wie "isValid" f?r jede modellkomponente, das
-    % vor start von teuren berechnungen pr?ft ob alles so durchgeht und keine
-    % inkompatibilit?ten auftreten (z.B. krylov - LinearCoreFun)
-    %
-    % @todo check ob es eine m?glichkeit gibt zu pr?fen ob alle unterklassen
-    % von projizierbaren klassen die project-methode der oberklasse aufrufen!?
-    % k?nnte sonst zu komischen fehlern f?hren..
-    %
-    % @todo check warum der error estimator nach einem save vom reduzierten
-    % modell nicht gespeichert wird.
-    %
-    % @todo 16.09.2010: f?r skalarprodukt-kerne eigenes interface
-    % implementieren und dann ggf. f?r W=V korrekt projezieren + TEST
-    % schreiben!
-    %
-    % @todo cacher aus RBMatlab portieren/?bertragen!
-    %
-    % @todo t-partitioning f?r KerMor? ideen mit markus austauschen!
-    %
-    % @todo MUnit erweitern um benchmark-mode, so das anstelle von "test_"
-    % prefix-fkt alle mit "bench_" ausgef?hrt werden; (r?ckgabe ist in dem fall
-    % ggf ein struct mit algorithmus und zeiten)
-    %
-    % @todo eigene POD-Basen f?r verschiedene Teile des systems denen andere
-    % physik zugrunde liegt (i.e. f(x) => [f_1(x); f_2(x)]), mit einzelner
-    % auswertung? dazu m?sste man indexmatrizen einrichten die die
-    % verschiedenen teile von f bezeichnen... (Motivation: "Application of POD
-    % and DEIM for MOR of Nonl. Miscible Viscous Flow, Chaturantabut/Sorensen)
-    %
-    % @todo fehlersch?tzer gegen die volle, nicht projizierte
-    % kernelapproximation einrichten? damit kann man den aktuell besch?tzten
-    % fehler besser bekommen..
-    %
-    % @todo sekantenabsch?tzung per kernregression vorab f?r 1D berechnen? dann
-    % entf?llt das newton-problem l?sen. interpolation z.B. geht auch f?r
-    % fehlerabsch?tzung um die rigorosit?t zu erhalten.
-    %
-    % @todo timedirty ?berarbeiten / rausnehmen etc, sollte auch einzelaufrufe
-    % zu offX checken.
-    %
-    % @todo PCAFixspace wieder einbauen, um greedy-basisgen zu erlauben (->
-    % generell: greedy-unterraumalgorithmus einbauen)
-    %
-    % @todo add tests for models with C output and custom G for 1-n
-    % dimensions!
-    %
-    % @todo hierarchical subspace selection? -> bad that approximation is
-    % trained on largest subspace, so would have to have more
-    % approximations. or any possibility to project approximation into
-    % sub-subspace??
-    %
-    % @todo Store distance matrix for centers (with rotation invariant kernels) and only update
-    % kernel matrix from that during iterations! saves a lot of computation time.
-    %
-    % @todo 
-    % - sort demos and +testing directories
-    % - sort out "groups" in documentation, probably remove them?
-    %
-    % @todo 
-    % - im setup: typo in "compliling"
-    % - hinweis: KerMor kommt mit mtoc++, do you want to configure matlabdocmaker now?
-    % (idealerweise: nur nach output fragen?!?)
-    %
-    % @todo implement CME model from steffen in KerMor!
-    %
-    % @todo change TempDirectory and DataDirectory to be dependent-only values (read & write
-    % directly to preferences), and enforce DIFFERENT folders (ModelData.SimCache
-    % uses same prefix etc)
-    %
-    % @todo KerMor.App.getDir method that saves the last accessed directory if successfully
-    % selected
-    %
-    % @todo: matrix-wertige auswertung/integration f??r alle systeme?
-    %
-    % @todo: possibility to add custom directories to PATH on startup (managed in kermor prefs)?
-    %
-    % @todo: incorporate /this.Gamma^2 already in getSqDiffNorm
-    %
-    % @todo
-    % - remove kernel matrix stuff
-    % - remove redundant algorithms
-    % - remove tests for old stuff
-    % - remove kernel interpol as class?
-    % - beim setup von docmaker wird version abgefragt: redundant in kermor!
-    % - kermor-diary in data-folder unter windows
-    % - automatisch den temp-ordner im datadir anlegen
-    %
-    % @todo model-transfer zwischen rechnern (mit daten)
     
     properties(Constant)
         % The current KerMor main version number
@@ -322,12 +163,12 @@ classdef KerMor < handle
         % given the KerMor.start script will ask for it.
         %
         % @default ./data @type char
-        DataDirectory = '';
+        DataDirectory;
         
         % Switch to determine if the Default Property Changed System shall be used or not.
         %
-        % @default true @type logical
-        UseDPCM = [];
+        % @default false @type logical
+        UseDPCM;
         
         % The preferred desktop layout to work with.
         %
@@ -511,7 +352,7 @@ classdef KerMor < handle
         end
         
         function value = get.UseDPCM(this)
-            value = getpref(this.getPrefTag,'UseDPCM',true);
+            value = getpref(this.getPrefTag,'UseDPCM', false);
         end
         
         function set.UseDPCM(this, value)
