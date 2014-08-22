@@ -170,6 +170,18 @@ classdef KerMor < handle
         % @default false @type logical
         UseDPCM;
         
+        % The default block size (in MB) for FileMatrix instances.
+        %
+        % File matrices are used to store matrices that would otherwise not
+        % fit into memory entirely. Hence, they are subdivided into blocks,
+        % which are stored in the file system.
+        %
+        % This is a machine-dependent property and should be used
+        % according to the local total memory availability.
+        %
+        % @type double @default data.FileMatrix.BLOCK_SIZE
+        BlockSize;
+        
         % The preferred desktop layout to work with.
         %
         % If you work with different desktop layouts or the KDE JUST DOES
@@ -360,6 +372,17 @@ classdef KerMor < handle
                 error('The UseDPCM flag must be boolean.');
             end
             setpref(this.getPrefTag,'UseDPCM',value);
+        end
+        
+        function value = get.BlockSize(this)
+            value = getpref(this.getPrefTag,'BlockSize', data.FileMatrix.BLOCK_SIZE);
+        end
+        
+        function set.BlockSize(this, value)
+            if ~isposrealscalar(value)
+                error('The BlockSize property must be a positive real scalar.');
+            end
+            setpref(this.getPrefTag,'BlockSize',value);
         end
         
         function value = get.UseDiary(this)
