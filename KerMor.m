@@ -660,11 +660,11 @@ classdef KerMor < handle
                 str = sprintf('Do you want to develop KerMor on this machine?\n(Y)es/(N)o: ');
                 ds = lower(input(str,'s'));
                 if isequal(ds,'y')
-                    addpath(fullfile(a.HomeDirectory,'tools'));
+                    addpath(fullfile(a.HomeDirectory,'core','tools'));
                     Devel.setup;
                     
                     %% Call setup for documentation creation
-                    addpath(fullfile(a.HomeDirectory,'extern'));
+                    addpath(fullfile(a.HomeDirectory,'core','extern'));
                     MatlabDocMaker.setup;
                 end
             end
