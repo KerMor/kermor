@@ -222,6 +222,12 @@ classdef KerMor < handle
         %      
         % @default true @type logical
         UseDiary = [];
+        
+        % The base directory where KerMor stores and looks for data from
+        % models etc.
+        %
+        % @type char @default KerMor.DataDirectory
+        Workspace;
     end
     
     properties(SetAccess=private)
@@ -252,6 +258,16 @@ classdef KerMor < handle
                 mkdir(value);
             end
             setpref(this.getPrefTag,'DATASTORE',value);
+        end
+        
+        function set.Workspace(this, value)
+            if ~ischar(value)
+                error('Workspace must be a char array');
+            elseif ~isempty(value) && ~isdir(value)
+                fprintf('Creating directory %s\n',value);
+                mkdir(value);
+            end
+            setpref(this.getPrefTag,'WORKSPACE',value);
         end
         
         function set.DesktopLayout(this, value)
@@ -308,6 +324,14 @@ classdef KerMor < handle
         
         function h = get.DataDirectory(this)
             h = getpref(this.getPrefTag,'DATASTORE','');
+        end
+        
+        function h = get.Workspace(this)
+            h = getpref(this.getPrefTag,'WORKSPACE','');
+            % If no workspace is set, use the data directory
+            if isempty(h)
+                h = this.DataDirectory;
+            end
         end
         
         function h = get.TempDirectory(this)
@@ -660,11 +684,11 @@ classdef KerMor < handle
                 str = sprintf('Do you want to develop KerMor on this machine?\n(Y)es/(N)o: ');
                 ds = lower(input(str,'s'));
                 if isequal(ds,'y')
-                    addpath(fullfile(a.HomeDirectory,'tools'));
+                    addpath(fullfile(a.HomeDirectory,'core','tools'));
                     Devel.setup;
                     
                     %% Call setup for documentation creation
-                    addpath(fullfile(a.HomeDirectory,'extern'));
+                    addpath(fullfile(a.HomeDirectory,'core','extern'));
                     MatlabDocMaker.setup;
                 end
             end
