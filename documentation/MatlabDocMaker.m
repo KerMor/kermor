@@ -535,7 +535,7 @@ classdef MatlabDocMaker
             % Source directory
             srcdir = MatlabDocMaker.getPref('srcdir','');
             word = 'keep';
-            if isempty(srcdir) || exist(srcdir,'dir') ~= 7
+            if isstruct(srcdir) || isempty(srcdir) || exist(srcdir,'dir') ~= 7
                 srcdir = pwd;
                 word = 'set';
             end
@@ -553,7 +553,7 @@ classdef MatlabDocMaker
             % Config directory
             confdir = MatlabDocMaker.getPref('confdir','');
             word = 'keep';
-            if isempty(confdir) || exist(confdir,'dir') ~= 7
+            if isstruct(confdir) || isempty(confdir) || exist(confdir,'dir') ~= 7
                 confdir = fullfile(srcdir,'documentation');
                 word = 'set';
             end
@@ -571,7 +571,7 @@ classdef MatlabDocMaker
             % Output directory
             outdir = MatlabDocMaker.getPref('outdir','');
             word = 'keep';
-            if isempty(outdir) || exist(outdir,'dir') ~= 7
+            if isstruct(outdir) || isempty(outdir) || exist(outdir,'dir') ~= 7
                 outdir = confdir;
                 word = 'set';
             end
