@@ -20,7 +20,7 @@ classdef DocumentationGuideSubclass < DocumentationGuide
         %
         % @type int
         % @default 0
-        SomeProp = 0;
+        SomePropSub = 0;
     end
     
     properties(Dependent)
@@ -30,7 +30,7 @@ classdef DocumentationGuideSubclass < DocumentationGuide
         %
         % See also: SomeProp
         % @see SomeProp
-        SomeDepProp;
+        SomeDepPropSub;
     end
     
     
