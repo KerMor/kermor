@@ -385,6 +385,7 @@ classdef KerMor < handle
                 error('The figure position must be a four element vector');
             end
             setpref(this.getPrefTag,'DefFigPos',value);
+            set(0,'DefaultFigurePosition',value);
         end
         
         function value = get.UseDPCM(this)
