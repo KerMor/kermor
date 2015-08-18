@@ -9,6 +9,9 @@ classdef KerMor < handle
     %
     % @author Daniel Wirtz @date 2011-03-04
     %
+    % @new{0,9,dw,2015-08-11} Published the implementations for native
+    % support of second order systems and their reduction.
+    %
     % @new{0,8,dw,2014-04-09} Started KerMor 0.8 and introduced a new file
     % structure and git submodules. Most importantly, the core files are
     % now separated from the already existing models in KerMor.
