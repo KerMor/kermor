@@ -730,6 +730,19 @@ classdef KerMor < handle
             KerMor.App.shutdown;
         end
         
+        function reset
+            tag = KerMor.getPrefTag;
+            setpref(tag,'DATASTORE',[]);
+            setpref(tag,'RBMATLABDIR','');
+            setpref(tag,'JKERMORDIR','');
+            setpref(tag,'DefFigPos',[10 10 800 600]);
+            setpref(tag,'DESKLAYOUT',[]);
+            setpref(tag,'UseDPCM',false);
+            setpref(tag,'UseDiary',true);
+            setpref(tag,'Verbose',2);
+            setpref(tag,'BlockSize',512);
+        end
+        
         function host = getHost
             % Returns the hostname of the current machine
             try
