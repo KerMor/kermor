@@ -18,8 +18,8 @@ classdef KerMor < handle
     %
     % @change{0,7,dw,2014-01-17} Removed the Flag
     % "UseMatlabParallelComputing" as this should/must be set up separately
-    % on each machine. Instead, manually opening the matlabpool is
-    % required. Moreover, the flags models.BaseFullModel.ComputeParallel
+    % on each machine. Instead, manually opening the matlab parallel pool is
+    % required (use PCPool). Moreover, the flags models.BaseFullModel.ComputeParallel
     % are used to determine the way of execution.
     %
     % @change{0,7,dw,2013-07-09} Removed the TempDirectory as customizable property and simply
